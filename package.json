@@ -1,0 +1,19 @@
+{
+  "name": "lin-dynamic-persona",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "Evidence-grounded, branch-isolated dynamic personas for SillyTavern",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check.mjs",
+    "package": "python3 scripts/package.py"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "6.2.5",
+    "happy-dom": "^21.0.4"
+  }
+}
