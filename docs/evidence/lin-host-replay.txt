@@ -1,0 +1,2 @@
+Preset bytes untouched a877d85ae1a26a13
+72 PASS · actual ST interceptor, extension registry, prompt collection function, Google converter + two Lin extensions (offline; no upstream).

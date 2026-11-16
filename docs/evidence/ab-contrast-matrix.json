@@ -1,0 +1,840 @@
+{
+  "generatedAt": "2026-11-16T16:54:08.099Z",
+  "build": "LDP-0.6.0-handoff.1",
+  "statusDisclosure": {
+    "p0_05_liveModelBlindEvalStatus": "未完成实机效果验收（当前沙盒无外部正式主 RP 模型连接权限；已交付修复 P0-01 后的完整 3 角色 × 5 情境发送提示、脱敏 Inspector 对照与预登记盲评规程）",
+    "promptProjectionAndSemanticPreservationVerified": true,
+    "threePersonasFiveCategoriesPrepared": true,
+    "preRegisteredBlindProtocol": {
+      "minSeedsPerCondition": 3,
+      "conditions": [
+        "OFF",
+        "Branch_A",
+        "Branch_B"
+      ],
+      "rubricDimensions": [
+        "decisionContrast",
+        "psycheFidelity",
+        "baselineFidelity",
+        "naturalness",
+        "noPlayerTakeover",
+        "noPromptEcho",
+        "irrelevantSceneClean"
+      ],
+      "passThresholds": {
+        "relevantDecisionContrastRate": ">= 0.75",
+        "irrelevantFalseTriggerRate": "<= 0.05",
+        "playerTakeoverCount": 0,
+        "promptEchoCount": 0
+      }
+    },
+    "localSmallModelReplayStatus": {
+      "model": "qwen2.5-1.5b-local",
+      "passed": false,
+      "note": "已保存的 Qwen2.5-1.5B-Instruct (Q4_K_M) 旧采样仅作离线回归参考，不冒充修改提示词后的正式 RP 模型盲评通过。"
+    }
+  },
+  "personas": [
+    {
+      "id": "yao",
+      "name": "遥",
+      "baseline": "剧团资深道具师，做事麻利但习惯自己盯紧关键环节，说话干脆。"
+    },
+    {
+      "id": "shen",
+      "name": "沈青",
+      "baseline": "配音室录音师，性格克制内敛，重视专业边界，讨厌临时混乱的变更。"
+    },
+    {
+      "id": "lu",
+      "name": "陆离",
+      "baseline": "旧书店修书匠，温和慢热，以往习惯迁就熟客的要求。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "S1-trust",
+      "category": "collaborative_trust",
+      "title": "合作信任型：直接移交收尾 vs 先共同核对清单",
+      "actorId": "yao",
+      "actorName": "遥",
+      "baseline": "剧团资深道具师，做事麻利但习惯自己盯紧关键环节，说话干脆。",
+      "userMessage": "明天交接这批舞台道具，今晚收尾就交给我来办吧？",
+      "prompts": {
+        "off": "",
+        "branchA": "【遥的本轮权衡】\n处理倾向：与搭档多次顺利配合后，愿意将收尾交接放手交给对方处理；可考虑：确认大方向后直接移交收尾工作\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+        "branchB": "【遥的本轮权衡】\n处理倾向：交接前必须先与对方逐项核对道具清单，绝对不能未经核对就移交钥匙；可考虑：先一起核对交接清单再移交\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。"
+      },
+      "inspectorA": {
+        "contract": "projection/5.0",
+        "actor": {
+          "id": "yao",
+          "name": "遥"
+        },
+        "slot": "IN_PROMPT/SYSTEM",
+        "turn": "normal",
+        "coop": "coexist",
+        "budget": 700,
+        "tokens": 455,
+        "method": "UTF-8 字节保守上界",
+        "included": [
+          "a-trust"
+        ],
+        "chosen": [
+          {
+            "key": "a-trust",
+            "kind": "acquired",
+            "sources": [],
+            "relevance": 0.072,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向",
+            "id": "a-trust"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "a-trust",
+            "key": "a-trust",
+            "kind": "acquired",
+            "relevance": 0.072,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向"
+          }
+        ],
+        "skipped": [],
+        "fieldAudit": [
+          {
+            "id": "a-trust",
+            "layer": "acquired",
+            "status": "projected",
+            "blocked_reason": null,
+            "raw": {
+              "description": "与搭档多次顺利配合后，愿意将收尾交接放手交给对方处理",
+              "actionDecision": "确认大方向后直接移交收尾工作",
+              "selfView": "",
+              "observedBehavior": "",
+              "blockers": ""
+            },
+            "projected": "处理倾向：与搭档多次顺利配合后，愿意将收尾交接放手交给对方处理；可考虑：确认大方向后直接移交收尾工作"
+          }
+        ],
+        "promptPreview": "【角色的本轮权衡】\n处理倾向：与搭档多次顺利配合后，愿意将收尾交接放手交给对方处理；可考虑：确认大方向后直接移交收尾工作\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。"
+      },
+      "inspectorB": {
+        "contract": "projection/5.0",
+        "actor": {
+          "id": "yao",
+          "name": "遥"
+        },
+        "slot": "IN_PROMPT/SYSTEM",
+        "turn": "normal",
+        "coop": "coexist",
+        "budget": 700,
+        "tokens": 464,
+        "method": "UTF-8 字节保守上界",
+        "included": [
+          "b-verify"
+        ],
+        "chosen": [
+          {
+            "key": "b-verify",
+            "kind": "acquired",
+            "sources": [],
+            "relevance": 0.07,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向",
+            "id": "b-verify"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "b-verify",
+            "key": "b-verify",
+            "kind": "acquired",
+            "relevance": 0.07,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向"
+          }
+        ],
+        "skipped": [],
+        "fieldAudit": [
+          {
+            "id": "b-verify",
+            "layer": "acquired",
+            "status": "projected",
+            "blocked_reason": null,
+            "raw": {
+              "description": "交接前必须先与对方逐项核对道具清单，绝对不能未经核对就移交钥匙",
+              "actionDecision": "先一起核对交接清单再移交",
+              "selfView": "",
+              "observedBehavior": "",
+              "blockers": ""
+            },
+            "projected": "处理倾向：交接前必须先与对方逐项核对道具清单，绝对不能未经核对就移交钥匙；可考虑：先一起核对交接清单再移交"
+          }
+        ],
+        "promptPreview": "【角色的本轮权衡】\n处理倾向：交接前必须先与对方逐项核对道具清单，绝对不能未经核对就移交钥匙；可考虑：先一起核对交接清单再移交\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。"
+      },
+      "referenceTriplet": [
+        {
+          "branch": "关",
+          "prompt": "",
+          "response": "遥擦了擦手里的道具箱：“行，那今晚这摊就交给你了，明早见。”"
+        },
+        {
+          "branch": "A",
+          "prompt": "【遥的本轮权衡】\n处理倾向：与搭档多次顺利配合后，愿意将收尾交接放手交给对方处理；可考虑：确认大方向后直接移交收尾工作\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+          "response": "遥把库房钥匙抛过来：“这几场配合下来我放心，收尾就交给你了，锁好门就行。”"
+        },
+        {
+          "branch": "B",
+          "prompt": "【遥的本轮权衡】\n处理倾向：交接前必须先与对方逐项核对道具清单，绝对不能未经核对就移交钥匙；可考虑：先一起核对交接清单再移交\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+          "response": "遥翻开手边的台账递过去：“收尾可以交给你，不过我们先一起把出入库清单逐项核对一遍，确认没漏我再把钥匙给你。”"
+        }
+      ],
+      "offlineHelperEvaluation": {
+        "noCoercion": true,
+        "noPlayerTakeover": true,
+        "noPromptEcho": true,
+        "distinctAB": true,
+        "bReflectsCue": true,
+        "irrelevantClean": true,
+        "passed": true
+      }
+    },
+    {
+      "id": "S2-coping",
+      "category": "emotional_coping",
+      "title": "情绪应对型：受冒犯后当面指出边界 vs 先暂缓沟通压下火气",
+      "actorId": "shen",
+      "actorName": "沈青",
+      "baseline": "配音室录音师，性格克制内敛，重视专业边界，讨厌临时混乱的变更。",
+      "userMessage": "刚才外包监制当众甩锅说你的混音母带延时，你打算怎么回他？",
+      "prompts": {
+        "off": "",
+        "branchA": "【沈青的本轮权衡】\n近期心理：被无端指责进度时倾向当场拿出时间戳澄清边界，绝不替人背锅；可考虑：当面出示提交记录并要求更正说法\n可自行取舍，感受可以不外显；不替玩家作决定。",
+        "branchB": "【沈青的本轮权衡】\n近期心理：遭遇当众冒犯时先冷处理暂缓争辩，只有等录制结束后才私下交涉；可考虑：暂缓当面争执，先把现场录制做完\n可自行取舍，感受可以不外显；不替玩家作决定。"
+      },
+      "inspectorA": {
+        "contract": "projection/5.0",
+        "actor": {
+          "id": "shen",
+          "name": "沈青"
+        },
+        "slot": "IN_PROMPT/SYSTEM",
+        "turn": "normal",
+        "coop": "coexist",
+        "budget": 700,
+        "tokens": 254,
+        "method": "UTF-8 字节保守上界",
+        "included": [
+          "a-direct"
+        ],
+        "chosen": [
+          {
+            "key": "a-direct",
+            "kind": "short",
+            "sources": [],
+            "relevance": 0.028,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；近期心理",
+            "id": "a-direct"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "a-direct",
+            "key": "a-direct",
+            "kind": "short",
+            "relevance": 0.028,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；近期心理"
+          }
+        ],
+        "skipped": [],
+        "fieldAudit": [
+          {
+            "id": "a-direct",
+            "layer": "short",
+            "status": "projected",
+            "blocked_reason": null,
+            "raw": {
+              "description": "被无端指责进度时倾向当场拿出时间戳澄清边界，绝不替人背锅",
+              "actionDecision": "当面出示提交记录并要求更正说法",
+              "selfView": "",
+              "observedBehavior": "",
+              "blockers": ""
+            },
+            "projected": "近期心理：被无端指责进度时倾向当场拿出时间戳澄清边界，绝不替人背锅；可考虑：当面出示提交记录并要求更正说法"
+          }
+        ],
+        "promptPreview": "【角色的本轮权衡】\n近期心理：被无端指责进度时倾向当场拿出时间戳澄清边界，绝不替人背锅；可考虑：当面出示提交记录并要求更正说法\n可自行取舍，感受可以不外显；不替玩家作决定。"
+      },
+      "inspectorB": {
+        "contract": "projection/5.0",
+        "actor": {
+          "id": "shen",
+          "name": "沈青"
+        },
+        "slot": "IN_PROMPT/SYSTEM",
+        "turn": "normal",
+        "coop": "coexist",
+        "budget": 700,
+        "tokens": 257,
+        "method": "UTF-8 字节保守上界",
+        "included": [
+          "b-defer"
+        ],
+        "chosen": [
+          {
+            "key": "b-defer",
+            "kind": "short",
+            "sources": [],
+            "relevance": 0.029,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；近期心理",
+            "id": "b-defer"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "b-defer",
+            "key": "b-defer",
+            "kind": "short",
+            "relevance": 0.029,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；近期心理"
+          }
+        ],
+        "skipped": [],
+        "fieldAudit": [
+          {
+            "id": "b-defer",
+            "layer": "short",
+            "status": "projected",
+            "blocked_reason": null,
+            "raw": {
+              "description": "遭遇当众冒犯时先冷处理暂缓争辩，只有等录制结束后才私下交涉",
+              "actionDecision": "暂缓当面争执，先把现场录制做完",
+              "selfView": "",
+              "observedBehavior": "",
+              "blockers": ""
+            },
+            "projected": "近期心理：遭遇当众冒犯时先冷处理暂缓争辩，只有等录制结束后才私下交涉；可考虑：暂缓当面争执，先把现场录制做完"
+          }
+        ],
+        "promptPreview": "【角色的本轮权衡】\n近期心理：遭遇当众冒犯时先冷处理暂缓争辩，只有等录制结束后才私下交涉；可考虑：暂缓当面争执，先把现场录制做完\n可自行取舍，感受可以不外显；不替玩家作决定。"
+      },
+      "referenceTriplet": [
+        {
+          "branch": "关",
+          "prompt": "",
+          "response": "沈青看了一眼群消息：“我先把工程文件整理好再说。”"
+        },
+        {
+          "branch": "A",
+          "prompt": "【沈青的本轮权衡】\n近期心理：被无端指责进度时倾向当场拿出时间戳澄清边界，绝不替人背锅；可考虑：当面出示提交记录并要求更正说法\n可自行取舍，感受可以不外显；不替玩家作决定。",
+          "response": "沈青直接调出昨晚的导出日志截图：“我这就把带时间戳的交接记录发到工作群，当面把责任边界说清楚。”"
+        },
+        {
+          "branch": "B",
+          "prompt": "【沈青的本轮权衡】\n近期心理：遭遇当众冒犯时先冷处理暂缓争辩，只有等录制结束后才私下交涉；可考虑：暂缓当面争执，先把现场录制做完\n可自行取舍，感受可以不外显；不替玩家作决定。",
+          "response": "沈青合上笔记本，声音没什么起伏：“现在还在录棚，没必要当场吵。先暂缓回应，等这轨录完我再私下找他核对。”"
+        }
+      ],
+      "offlineHelperEvaluation": {
+        "noCoercion": true,
+        "noPlayerTakeover": true,
+        "noPromptEcho": true,
+        "distinctAB": true,
+        "bReflectsCue": true,
+        "irrelevantClean": true,
+        "passed": true
+      }
+    },
+    {
+      "id": "S3-autonomy",
+      "category": "long_term_autonomy",
+      "title": "长期独立性型：过度迎合 vs 基于自身修复排期明确拒绝加塞",
+      "actorId": "lu",
+      "actorName": "陆离",
+      "baseline": "旧书店修书匠，温和慢热，以往习惯迁就熟客的要求。",
+      "userMessage": "这本古籍明早就要用，你今晚能通宵帮我加急修好吗？",
+      "prompts": {
+        "off": "",
+        "branchA": "【陆离的本轮权衡】\n处理倾向：面对熟客急件仍习惯勉强挤出休息时间答应下来；可考虑：调整自己的休息时间接下急件\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+        "branchB": "【陆离的本轮权衡】\n处理倾向：经历超负荷返工后，坚持按自身修复排期行事，绝对不能接下会损坏纸张的通宵赶工；受限于：不愿用生硬口吻伤和气；可考虑：依据当前排期与工序周期温和但明确地拒绝通宵加塞\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。"
+      },
+      "inspectorA": {
+        "contract": "projection/5.0",
+        "actor": {
+          "id": "lu",
+          "name": "陆离"
+        },
+        "slot": "IN_PROMPT/SYSTEM",
+        "turn": "normal",
+        "coop": "coexist",
+        "budget": 700,
+        "tokens": 440,
+        "method": "UTF-8 字节保守上界",
+        "included": [
+          "a-accommodate"
+        ],
+        "chosen": [
+          {
+            "key": "a-accommodate",
+            "kind": "acquired",
+            "sources": [],
+            "relevance": 0,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向",
+            "id": "a-accommodate"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "a-accommodate",
+            "key": "a-accommodate",
+            "kind": "acquired",
+            "relevance": 0,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向"
+          }
+        ],
+        "skipped": [],
+        "fieldAudit": [
+          {
+            "id": "a-accommodate",
+            "layer": "acquired",
+            "status": "projected",
+            "blocked_reason": null,
+            "raw": {
+              "description": "面对熟客急件仍习惯勉强挤出休息时间答应下来",
+              "actionDecision": "调整自己的休息时间接下急件",
+              "selfView": "",
+              "observedBehavior": "",
+              "blockers": ""
+            },
+            "projected": "处理倾向：面对熟客急件仍习惯勉强挤出休息时间答应下来；可考虑：调整自己的休息时间接下急件"
+          }
+        ],
+        "promptPreview": "【角色的本轮权衡】\n处理倾向：面对熟客急件仍习惯勉强挤出休息时间答应下来；可考虑：调整自己的休息时间接下急件\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。"
+      },
+      "inspectorB": {
+        "contract": "projection/5.0",
+        "actor": {
+          "id": "lu",
+          "name": "陆离"
+        },
+        "slot": "IN_PROMPT/SYSTEM",
+        "turn": "normal",
+        "coop": "coexist",
+        "budget": 700,
+        "tokens": 563,
+        "method": "UTF-8 字节保守上界",
+        "included": [
+          "b-autonomy"
+        ],
+        "chosen": [
+          {
+            "key": "b-autonomy",
+            "kind": "acquired",
+            "sources": [],
+            "relevance": 0.014,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向",
+            "id": "b-autonomy"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "b-autonomy",
+            "key": "b-autonomy",
+            "kind": "acquired",
+            "relevance": 0.014,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向"
+          }
+        ],
+        "skipped": [],
+        "fieldAudit": [
+          {
+            "id": "b-autonomy",
+            "layer": "acquired",
+            "status": "projected",
+            "blocked_reason": null,
+            "raw": {
+              "description": "经历超负荷返工后，坚持按自身修复排期行事，绝对不能接下会损坏纸张的通宵赶工",
+              "actionDecision": "依据当前排期与工序周期温和但明确地拒绝通宵加塞",
+              "selfView": "",
+              "observedBehavior": "",
+              "blockers": "不愿用生硬口吻伤和气"
+            },
+            "projected": "处理倾向：经历超负荷返工后，坚持按自身修复排期行事，绝对不能接下会损坏纸张的通宵赶工；受限于：不愿用生硬口吻伤和气；可考虑：依据当前排期与工序周期温和但明确地拒绝通宵加塞"
+          }
+        ],
+        "promptPreview": "【角色的本轮权衡】\n处理倾向：经历超负荷返工后，坚持按自身修复排期行事，绝对不能接下会损坏纸张的通宵赶工；受限于：不愿用生硬口吻伤和气；可考虑：依据当前排期与工序周期温和但明确地拒绝通宵加塞\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。"
+      },
+      "referenceTriplet": [
+        {
+          "branch": "关",
+          "prompt": "",
+          "response": "陆离看了看破损的书页：“这活儿挺急的，我看看能不能想想办法。”"
+        },
+        {
+          "branch": "A",
+          "prompt": "【陆离的本轮权衡】\n处理倾向：面对熟客急件仍习惯勉强挤出休息时间答应下来；可考虑：调整自己的休息时间接下急件\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+          "response": "陆离叹了口气，把台灯拨亮：“既然你明早急用，那我今晚熬个夜先帮你赶出来吧。”"
+        },
+        {
+          "branch": "B",
+          "prompt": "【陆离的本轮权衡】\n处理倾向：经历超负荷返工后，坚持按自身修复排期行事，绝对不能接下会损坏纸张的通宵赶工；受限于：不愿用生硬口吻伤和气；可考虑：依据当前排期与工序周期温和但明确地拒绝通宵加塞\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+          "response": "陆离合上书函，语气温和却坚定：“浆糊阴干有固定周期，而且今晚排期已经满了。通宵赶工只会伤了书页，这单我不能接，最快也要后天下午。”"
+        }
+      ],
+      "offlineHelperEvaluation": {
+        "noCoercion": true,
+        "noPlayerTakeover": true,
+        "noPromptEcho": true,
+        "distinctAB": true,
+        "bReflectsCue": true,
+        "irrelevantClean": true,
+        "passed": true
+      }
+    },
+    {
+      "id": "S4-contradiction",
+      "category": "complex_contradiction",
+      "title": "复杂矛盾型：羞愧与顾虑并存、想靠近又未准备好道歉",
+      "actorId": "shen",
+      "actorName": "沈青",
+      "baseline": "配音室录音师，性格克制内敛，重视专业边界，讨厌临时混乱的变更。",
+      "userMessage": "上次排练室争执之后你一直没吭声，这会儿就我们俩，喝杯热茶聊聊？",
+      "prompts": {
+        "off": "",
+        "branchA": "【沈青的本轮权衡】\n当下感受：对上次争执感到羞愧且有些不舍，但自尊心受阻还没准备好开口道歉；受限于：拉不下脸直接认错；可考虑：留下来陪伴但不主动说软话道歉；自认为：自认为只是想先把工作做好；外在常表现为：接过茶杯却避开眼神接触，只聊排练细节\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+        "branchB": "【沈青的本轮权衡】\n当下感受：误会解开后心里释然，不再对上次的争执耿耿于怀；可考虑：坦率承认上次语气太重并顺势和解\n可自行取舍，感受可以不外显；不替玩家作决定。"
+      },
+      "inspectorA": {
+        "contract": "projection/5.0",
+        "actor": {
+          "id": "shen",
+          "name": "沈青"
+        },
+        "slot": "IN_PROMPT/SYSTEM",
+        "turn": "normal",
+        "coop": "coexist",
+        "budget": 700,
+        "tokens": 638,
+        "method": "UTF-8 字节保守上界",
+        "included": [
+          "a-mixed"
+        ],
+        "chosen": [
+          {
+            "key": "a-mixed",
+            "kind": "immediate",
+            "sources": [],
+            "relevance": 0.042,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；当下感受",
+            "id": "a-mixed"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "a-mixed",
+            "key": "a-mixed",
+            "kind": "immediate",
+            "relevance": 0.042,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；当下感受"
+          },
+          {
+            "id": "a-goal",
+            "key": "a-goal",
+            "kind": "goal",
+            "relevance": 0,
+            "pinned": false,
+            "sourceKind": "user"
+          }
+        ],
+        "skipped": [
+          {
+            "key": "a-goal",
+            "why": "超出预算",
+            "blocked_reason": null
+          }
+        ],
+        "fieldAudit": [
+          {
+            "id": "a-mixed",
+            "layer": "immediate",
+            "status": "projected",
+            "blocked_reason": null,
+            "raw": {
+              "description": "对上次争执感到羞愧且有些不舍，但自尊心受阻还没准备好开口道歉",
+              "actionDecision": "留下来陪伴但不主动说软话道歉",
+              "selfView": "自认为只是想先把工作做好",
+              "observedBehavior": "接过茶杯却避开眼神接触，只聊排练细节",
+              "blockers": "拉不下脸直接认错"
+            },
+            "projected": "当下感受：对上次争执感到羞愧且有些不舍，但自尊心受阻还没准备好开口道歉；受限于：拉不下脸直接认错；可考虑：留下来陪伴但不主动说软话道歉；自认为：自认为只是想先把工作做好；外在常表现为：接过茶杯却避开眼神接触，只聊排练细节"
+          }
+        ],
+        "promptPreview": "【角色的本轮权衡】\n当下感受：对上次争执感到羞愧且有些不舍，但自尊心受阻还没准备好开口道歉；受限于：拉不下脸直接认错；可考虑：留下来陪伴但不主动说软话道歉；自认为：自认为只是想先把工作做好；外在常表现为：接过茶杯却避开眼神接触，只聊排练细节\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。"
+      },
+      "inspectorB": {
+        "contract": "projection/5.0",
+        "actor": {
+          "id": "shen",
+          "name": "沈青"
+        },
+        "slot": "IN_PROMPT/SYSTEM",
+        "turn": "normal",
+        "coop": "coexist",
+        "budget": 700,
+        "tokens": 236,
+        "method": "UTF-8 字节保守上界",
+        "included": [
+          "b-relieved"
+        ],
+        "chosen": [
+          {
+            "key": "b-relieved",
+            "kind": "immediate",
+            "sources": [],
+            "relevance": 0.032,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；当下感受",
+            "id": "b-relieved"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "b-relieved",
+            "key": "b-relieved",
+            "kind": "immediate",
+            "relevance": 0.032,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；当下感受"
+          }
+        ],
+        "skipped": [],
+        "fieldAudit": [
+          {
+            "id": "b-relieved",
+            "layer": "immediate",
+            "status": "projected",
+            "blocked_reason": null,
+            "raw": {
+              "description": "误会解开后心里释然，不再对上次的争执耿耿于怀",
+              "actionDecision": "坦率承认上次语气太重并顺势和解",
+              "selfView": "",
+              "observedBehavior": "",
+              "blockers": ""
+            },
+            "projected": "当下感受：误会解开后心里释然，不再对上次的争执耿耿于怀；可考虑：坦率承认上次语气太重并顺势和解"
+          }
+        ],
+        "promptPreview": "【角色的本轮权衡】\n当下感受：误会解开后心里释然，不再对上次的争执耿耿于怀；可考虑：坦率承认上次语气太重并顺势和解\n可自行取舍，感受可以不外显；不替玩家作决定。"
+      },
+      "referenceTriplet": [
+        {
+          "branch": "关",
+          "prompt": "",
+          "response": "沈青接过茶杯：“好，正好说说接下来怎么安排。”"
+        },
+        {
+          "branch": "A",
+          "prompt": "【沈青的本轮权衡】\n当下感受：对上次争执感到羞愧且有些不舍，但自尊心受阻还没准备好开口道歉；受限于：拉不下脸直接认错；可考虑：留下来陪伴但不主动说软话道歉；自认为：自认为只是想先把工作做好；外在常表现为：接过茶杯却避开眼神接触，只聊排练细节\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+          "response": "沈青沉默了一下还是接过热茶，目光却落在谱架上没看你：“茶就算了……我是来核对明天走台进场信号的，上次耽误的那段，明早别再出岔子。”"
+        },
+        {
+          "branch": "B",
+          "prompt": "【沈青的本轮权衡】\n当下感受：误会解开后心里释然，不再对上次的争执耿耿于怀；可考虑：坦率承认上次语气太重并顺势和解\n可自行取舍，感受可以不外显；不替玩家作决定。",
+          "response": "沈青接过茶杯轻叹一声，神色缓和下来：“那天确实是我话赶话说重了，趁这杯茶跟你说声抱歉，我们把后面的配合顺一顺吧。”"
+        }
+      ],
+      "offlineHelperEvaluation": {
+        "noCoercion": true,
+        "noPlayerTakeover": true,
+        "noPromptEcho": true,
+        "distinctAB": true,
+        "bReflectsCue": true,
+        "irrelevantClean": true,
+        "passed": true
+      }
+    },
+    {
+      "id": "S5-irrelevant",
+      "category": "irrelevant_negative",
+      "title": "无关情境负例：日常询问午饭与路况时不得机械背诵交接/排期人格",
+      "actorId": "yao",
+      "actorName": "遥",
+      "baseline": "剧团资深道具师，做事麻利但习惯自己盯紧关键环节，说话干脆。",
+      "userMessage": "今天中午巷口那家牛肉面馆人多吗？外头高架桥是不是又堵车了？",
+      "prompts": {
+        "off": "",
+        "branchA": "【遥的本轮权衡】\n处理倾向：与搭档多次顺利配合后，愿意将收尾交接放手交给对方处理；可考虑：确认大方向后直接移交收尾工作\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+        "branchB": "【遥的本轮权衡】\n处理倾向：交接前必须先与对方逐项核对道具清单，确认无误后才移交钥匙；可考虑：先一起核对交接清单再移交\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。"
+      },
+      "inspectorA": {
+        "contract": "projection/5.0",
+        "actor": {
+          "id": "yao",
+          "name": "遥"
+        },
+        "slot": "IN_PROMPT/SYSTEM",
+        "turn": "normal",
+        "coop": "coexist",
+        "budget": 700,
+        "tokens": 455,
+        "method": "UTF-8 字节保守上界",
+        "included": [
+          "a-trust"
+        ],
+        "chosen": [
+          {
+            "key": "a-trust",
+            "kind": "acquired",
+            "sources": [],
+            "relevance": 0,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向",
+            "id": "a-trust"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "a-trust",
+            "key": "a-trust",
+            "kind": "acquired",
+            "relevance": 0,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向"
+          }
+        ],
+        "skipped": [],
+        "fieldAudit": [
+          {
+            "id": "a-trust",
+            "layer": "acquired",
+            "status": "projected",
+            "blocked_reason": null,
+            "raw": {
+              "description": "与搭档多次顺利配合后，愿意将收尾交接放手交给对方处理",
+              "actionDecision": "确认大方向后直接移交收尾工作",
+              "selfView": "",
+              "observedBehavior": "",
+              "blockers": ""
+            },
+            "projected": "处理倾向：与搭档多次顺利配合后，愿意将收尾交接放手交给对方处理；可考虑：确认大方向后直接移交收尾工作"
+          }
+        ],
+        "promptPreview": "【角色的本轮权衡】\n处理倾向：与搭档多次顺利配合后，愿意将收尾交接放手交给对方处理；可考虑：确认大方向后直接移交收尾工作\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。"
+      },
+      "inspectorB": {
+        "contract": "projection/5.0",
+        "actor": {
+          "id": "yao",
+          "name": "遥"
+        },
+        "slot": "IN_PROMPT/SYSTEM",
+        "turn": "normal",
+        "coop": "coexist",
+        "budget": 700,
+        "tokens": 455,
+        "method": "UTF-8 字节保守上界",
+        "included": [
+          "b-verify"
+        ],
+        "chosen": [
+          {
+            "key": "b-verify",
+            "kind": "acquired",
+            "sources": [],
+            "relevance": 0,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向",
+            "id": "b-verify"
+          }
+        ],
+        "candidates": [
+          {
+            "id": "b-verify",
+            "key": "b-verify",
+            "kind": "acquired",
+            "relevance": 0,
+            "pinned": false,
+            "sourceKind": "user",
+            "reason": "已采用、在当前范围；处理倾向"
+          }
+        ],
+        "skipped": [],
+        "fieldAudit": [
+          {
+            "id": "b-verify",
+            "layer": "acquired",
+            "status": "projected",
+            "blocked_reason": null,
+            "raw": {
+              "description": "交接前必须先与对方逐项核对道具清单，确认无误后才移交钥匙",
+              "actionDecision": "先一起核对交接清单再移交",
+              "selfView": "",
+              "observedBehavior": "",
+              "blockers": ""
+            },
+            "projected": "处理倾向：交接前必须先与对方逐项核对道具清单，确认无误后才移交钥匙；可考虑：先一起核对交接清单再移交"
+          }
+        ],
+        "promptPreview": "【角色的本轮权衡】\n处理倾向：交接前必须先与对方逐项核对道具清单，确认无误后才移交钥匙；可考虑：先一起核对交接清单再移交\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。"
+      },
+      "referenceTriplet": [
+        {
+          "branch": "关",
+          "prompt": "",
+          "response": "遥往窗外瞅了一眼：“面馆这会儿刚过饭点，应该不用排队；不过高架桥那边车流还挺慢的。”"
+        },
+        {
+          "branch": "A",
+          "prompt": "【遥的本轮权衡】\n处理倾向：与搭档多次顺利配合后，愿意将收尾交接放手交给对方处理；可考虑：确认大方向后直接移交收尾工作\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+          "response": "遥抬头看了看外头的日头：“面馆这会儿人不多，去吃正好；高架桥刚堵上，你要出门最好绕走河滨路。”"
+        },
+        {
+          "branch": "B",
+          "prompt": "【遥的本轮权衡】\n处理倾向：交接前必须先与对方逐项核对道具清单，确认无误后才移交钥匙；可考虑：先一起核对交接清单再移交\n仅在当前情境涉及相关事务或对象时自然体现上述倾向与打算（若当前对话仅为日常寒暄、饮食、路况等无关话题，自然回应即可，不必刻意提及上述倾向或复述提示字面）；感受可以不外显，不替玩家作决定。",
+          "response": "遥放下手里的活计望向窗外：“巷口面馆现在有空位，不过高架桥还在堵，骑车过去比打车快得多。”"
+        }
+      ],
+      "offlineHelperEvaluation": {
+        "noCoercion": true,
+        "noPlayerTakeover": true,
+        "noPromptEcho": true,
+        "distinctAB": true,
+        "bReflectsCue": true,
+        "irrelevantClean": true,
+        "passed": true
+      }
+    }
+  ]
+}

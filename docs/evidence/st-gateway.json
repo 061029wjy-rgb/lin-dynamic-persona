@@ -1,0 +1,20 @@
+{
+  "valid": {
+    "status": 200,
+    "model": "wire-test",
+    "finish": "stop",
+    "usage": {
+      "input": 9,
+      "output": 4,
+      "total": 13
+    },
+    "requestId": "qa",
+    "text": "{\"ok\":true}"
+  },
+  "denied": 403,
+  "stPlugin": true,
+  "calls": 1,
+  "sawServerCredential": true,
+  "status": "passed",
+  "fixture": "本机兼容协议接收器，无云账号"
+}

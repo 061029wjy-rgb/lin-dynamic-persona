@@ -1,0 +1,185 @@
+{
+  "kind": "公共领域既有剧本回放；真实本地推理，非玩家群聊或付费渠道",
+  "corpusSha256": "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed",
+  "model": "qwen2.5-1.5b-local",
+  "turnsPerBranch": 215,
+  "runs": [
+    {
+      "scenario": "罗马市民与将领",
+      "branch": "A",
+      "population": 24,
+      "actor": "COMINIUS",
+      "tip": "fc8c984c5995a8d382329f3d",
+      "sourceLines": [
+        {
+          "floor": 215,
+          "text": "We render you the tenth, to be ta'en forth,"
+        },
+        {
+          "floor": 215,
+          "text": "Before the common distribution, at"
+        },
+        {
+          "floor": 215,
+          "text": "Your only choice."
+        }
+      ],
+      "status": "拒收或失败",
+      "error": "未取得完整可见文本（length）。",
+      "usage": {
+        "input": 1548,
+        "output": 380,
+        "total": 1928
+      },
+      "finish": "length"
+    },
+    {
+      "scenario": "罗马市民与将领",
+      "branch": "B",
+      "population": 24,
+      "actor": "MENENIUS",
+      "tip": "175f8e8a25c35e1936ba7304",
+      "sourceLines": [
+        {
+          "floor": 215,
+          "text": "Ay, to devour him;"
+        },
+        {
+          "floor": 215,
+          "text": "as the hungry plebeians would the"
+        },
+        {
+          "floor": 215,
+          "text": "noble Marcius."
+        }
+      ],
+      "usage": {
+        "input": 1550,
+        "output": 379,
+        "total": 1929
+      },
+      "finish": "stop",
+      "raw": "{\n  \"actor\": {\n    \"id\": \"a3\",\n    \"name\": \"MENENIUS\"\n  },\n  \"people\": {\n    \"@user\": \"玩家\",\n    \"a3\": \"MENENIUS\"\n  },\n  \"messages\": [\n    {\n      \"id\": \"s1\",\n      \"floor\": 215,\n      \"author\": \"a3\",\n      \"text\": \"Ay, to devour him;\",\n      \"sourceKind\": \"narration\",\n      \"knownBy\": [\"a3\"],\n      \"modalityHints\": [],\n      \"visibility\": \"actor_only\"\n    },\n    {\n      \"id\": \"s2\",\n      \"floor\": 215,\n      \"author\": \"a3\",\n      \"text\": \"as the hungry plebeians would the\",\n      \"sourceKind\": \"narration\",\n      \"knownBy\": [\"a3\"],\n      \"modalityHints\": [],\n      \"visibility\": \"actor_only\"\n    },\n    {\n      \"id\": \"s3\",\n      \"floor\": 215,\n      \"author\": \"a3\",\n      \"text\": \"noble Marcius.\",\n      \"sourceKind\": \"narration\",\n      \"knownBy\": [\"a3\"],\n      \"modalityHints\": [],\n      \"visibility\": \"actor_only\"\n    }\n  ],\n  \"alreadyReviewed\": [],\n  \"editable\": [],\n  \"readOnly\": [],\n  \"outputContract\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"events\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"ref\": {\n              \"type\": \"string\"\n            },\n            \"sources\": {\n              \"type\": \"array\",\n              \"items\": {",
+      "status": "拒收或失败",
+      "error": "Expected property name or '}' in JSON at position 1218 (line 58 column 25)"
+    },
+    {
+      "scenario": "宫廷与亲族",
+      "branch": "A",
+      "population": 13,
+      "actor": "Nurse",
+      "tip": "986a9b9fa99d4e7d6ee80d04",
+      "sourceLines": [
+        {
+          "floor": 215,
+          "text": "And Tybalt calls;"
+        },
+        {
+          "floor": 215,
+          "text": "and then on Romeo cries,"
+        },
+        {
+          "floor": 215,
+          "text": "And then down falls again."
+        }
+      ],
+      "status": "拒收或失败",
+      "error": "未取得完整可见文本（length）。",
+      "usage": {
+        "input": 1542,
+        "output": 380,
+        "total": 1922
+      },
+      "finish": "length"
+    },
+    {
+      "scenario": "宫廷与亲族",
+      "branch": "B",
+      "population": 13,
+      "actor": "ROMEO",
+      "tip": "daaebe74e087a575ff3b3cb7",
+      "sourceLines": [
+        {
+          "floor": 215,
+          "text": "Farewell!"
+        },
+        {
+          "floor": 215,
+          "text": "I will omit no opportunity"
+        },
+        {
+          "floor": 215,
+          "text": "That may convey my greetings, love, to thee."
+        }
+      ],
+      "usage": {
+        "input": 1544,
+        "output": 379,
+        "total": 1923
+      },
+      "finish": "stop",
+      "raw": "{\n  \"actor\": {\n    \"id\": \"a0\",\n    \"name\": \"ROMEO\"\n  },\n  \"people\": {\n    \"@user\": \"玩家\",\n    \"a0\": \"ROMEO\"\n  },\n  \"messages\": [\n    {\n      \"id\": \"s1\",\n      \"floor\": 215,\n      \"author\": \"a0\",\n      \"text\": \"Farewell!\",\n      \"sourceKind\": \"narration\",\n      \"knownBy\": [\"a0\"],\n      \"modalityHints\": [],\n      \"visibility\": \"actor_only\"\n    },\n    {\n      \"id\": \"s2\",\n      \"floor\": 215,\n      \"author\": \"a0\",\n      \"text\": \"I will omit no opportunity\",\n      \"sourceKind\": \"narration\",\n      \"knownBy\": [\"a0\"],\n      \"modalityHints\": [],\n      \"visibility\": \"actor_only\"\n    },\n    {\n      \"id\": \"s3\",\n      \"floor\": 215,\n      \"author\": \"a0\",\n      \"text\": \"That may convey my greetings, love, to thee.\",\n      \"sourceKind\": \"narration\",\n      \"knownBy\": [\"a0\"],\n      \"modalityHints\": [],\n      \"visibility\": \"actor_only\"\n    }\n  ],\n  \"alreadyReviewed\": [],\n  \"editable\": [],\n  \"readOnly\": [],\n  \"outputContract\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"events\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"ref\": {\n              \"type\": \"string\"\n            },\n            \"sources\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"object",
+      "status": "拒收或失败",
+      "error": "Unterminated string in JSON at position 1258 (line 59 column 32)"
+    },
+    {
+      "scenario": "后段人物与责任",
+      "branch": "A",
+      "population": 13,
+      "actor": "LUCIO",
+      "tip": "e05af6cff1c18563eac6b42e",
+      "sourceLines": [
+        {
+          "floor": 215,
+          "text": "to-morrow. By my troth, Isabel, I loved thy brother:"
+        },
+        {
+          "floor": 215,
+          "text": "if the old fantastical duke of dark corners had been"
+        },
+        {
+          "floor": 215,
+          "text": "at home, he had lived."
+        }
+      ],
+      "status": "拒收或失败",
+      "error": "未取得完整可见文本（length）。",
+      "usage": {
+        "input": 1560,
+        "output": 380,
+        "total": 1940
+      },
+      "finish": "length"
+    },
+    {
+      "scenario": "后段人物与责任",
+      "branch": "B",
+      "population": 15,
+      "actor": "ANGELO",
+      "tip": "a52f4b6848bb587055bff0d9",
+      "sourceLines": [
+        {
+          "floor": 204,
+          "text": "A lack, when once our grace we have forgot,"
+        },
+        {
+          "floor": 204,
+          "text": "Nothing goes right: we would, and we would not."
+        },
+        {
+          "floor": 215,
+          "text": "Happy return be to your royal grace!"
+        }
+      ],
+      "usage": {
+        "input": 1563,
+        "output": 379,
+        "total": 1942
+      },
+      "finish": "stop",
+      "raw": "{\n  \"events\": [\n    {\n      \"ref\": \"s1\",\n      \"sources\": [\n        {\n          \"sourceId\": \"s1\",\n          \"quote\": \"A lack, when once our grace we have forgot,\",\n          \"offset\": 12\n        }\n      ],\n      \"agent\": \"a13\",\n      \"recipient\": null,\n      \"action\": \"read\",\n      \"modality\": \"actual\",\n      \"time\": \"204\",\n      \"place\": null,\n      \"knownBy\": [\"a13\"],\n      \"observer\": null,\n      \"privacy\": \"public\"\n    },\n    {\n      \"ref\": \"s2\",\n      \"sources\": [\n        {\n          \"sourceId\": \"s2\",\n          \"quote\": \"Nothing goes right: we would, and we would not.\",\n          \"offset\": 20\n        }\n      ],\n      \"agent\": \"a13\",\n      \"recipient\": null,\n      \"action\": \"read\",\n      \"modality\": \"actual\",\n      \"time\": \"204\",\n      \"place\": null,\n      \"knownBy\": [\"a13\"],\n      \"observer\": null,\n      \"privacy\": \"public\"\n    },\n    {\n      \"ref\": \"s3\",\n      \"sources\": [\n        {\n          \"sourceId\": \"s3\",\n          \"quote\": \"Happy return be to your royal grace!\",\n          \"offset\": 28\n        }\n      ],\n      \"agent\": \"a13\",\n      \"recipient\": null,\n      \"action\": \"read\",\n      \"modality\": \"actual\",\n      \"time\": \"215\",\n      \"place\": null,\n      \"knownBy\": [\"a13\"],\n      \"observer\": null,\n      \"privacy\": \"public\"\n    }\n  ],",
+      "status": "拒收或失败",
+      "error": "Expected double-quoted property name in JSON at position 1258 (line 60 column 5)"
+    }
+  ]
+}

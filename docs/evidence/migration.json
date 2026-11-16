@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "base": "uploaded v0.4.0 browser modules",
+  "realm": "Chromium native IndexedDB",
+  "oldNodes": 1,
+  "newNodes": 1,
+  "identicalOldNodes": true,
+  "archivedOriginal": true,
+  "frozenRecord": "登记交接条件",
+  "usageCount": 1,
+  "retainsManualPolicy": true,
+  "failureTest": {
+    "blocked": true,
+    "originalRows": 1,
+    "targetRows": 0
+  }
+}

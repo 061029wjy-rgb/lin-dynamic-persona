@@ -1,0 +1,329 @@
+
+> lin-dynamic-persona@0.6.0 test
+> node --test tests/*.test.js
+
+TAP version 13
+# Subtest: 模型只是提出解释，精确引文/偏移与人类批准为彼此独立的关口；两天两次支持长期人格
+ok 1 - 模型只是提出解释，精确引文/偏移与人类批准为彼此独立的关口；两天两次支持长期人格
+  ---
+  duration_ms: 28.184316
+  ...
+# Subtest: 在两楼讲同一事件、日期未知不能累加，玩家合并提及后仍只算一次；不同日期不可合并
+ok 2 - 在两楼讲同一事件、日期未知不能累加，玩家合并提及后仍只算一次；不同日期不可合并
+  ---
+  duration_ms: 8.409509
+  ...
+# Subtest: 变形：普通上班 → 索引原文不能自行断言约会、主体、或写入 L1
+ok 3 - 变形：普通上班 → 索引原文不能自行断言约会、主体、或写入 L1
+  ---
+  duration_ms: 2.817282
+  ...
+# Subtest: 变形：第三方 → 索引原文不能自行断言约会、主体、或写入 L1
+ok 4 - 变形：第三方 → 索引原文不能自行断言约会、主体、或写入 L1
+  ---
+  duration_ms: 2.565689
+  ...
+# Subtest: 变形：假如 → 索引原文不能自行断言约会、主体、或写入 L1
+ok 5 - 变形：假如 → 索引原文不能自行断言约会、主体、或写入 L1
+  ---
+  duration_ms: 3.672938
+  ...
+# Subtest: 变形：梦境 → 索引原文不能自行断言约会、主体、或写入 L1
+ok 6 - 变形：梦境 → 索引原文不能自行断言约会、主体、或写入 L1
+  ---
+  duration_ms: 2.385466
+  ...
+# Subtest: 变形：否定 → 索引原文不能自行断言约会、主体、或写入 L1
+ok 7 - 变形：否定 → 索引原文不能自行断言约会、主体、或写入 L1
+  ---
+  duration_ms: 2.635291
+  ...
+# Subtest: 变形：表演 → 索引原文不能自行断言约会、主体、或写入 L1
+ok 8 - 变形：表演 → 索引原文不能自行断言约会、主体、或写入 L1
+  ---
+  duration_ms: 2.627212
+  ...
+# Subtest: 变形：回忆 → 索引原文不能自行断言约会、主体、或写入 L1
+ok 9 - 变形：回忆 → 索引原文不能自行断言约会、主体、或写入 L1
+  ---
+  duration_ms: 2.99764
+  ...
+# Subtest: 伪造片段、错 offsets、未知 ID 或另一个角色的 source 在投影之前整批拒绝
+ok 10 - 伪造片段、错 offsets、未知 ID 或另一个角色的 source 在投影之前整批拒绝
+  ---
+  duration_ms: 4.984467
+  ...
+# Subtest: 原文位置按选中消息的 UTF-16 计；禁止跨隐藏注释拼引文；来源编辑不能沿用未经复核的人格
+ok 11 - 原文位置按选中消息的 UTF-16 计；禁止跨隐藏注释拼引文；来源编辑不能沿用未经复核的人格
+  ---
+  duration_ms: 2.055115
+  ...
+# Subtest: 改行动人后原提案不能再指向旧对象；更正或拒绝事件让已批准人格暂停
+ok 12 - 改行动人后原提案不能再指向旧对象；更正或拒绝事件让已批准人格暂停
+  ---
+  duration_ms: 5.495984
+  ...
+# Subtest: 角色知情在索引和分析输入之前过滤；撤销授权及替换 Swipe 后不会因文本相似复活
+ok 13 - 角色知情在索引和分析输入之前过滤；撤销授权及替换 Swipe 后不会因文本相似复活
+  ---
+  duration_ms: 6.907607
+  ...
+# Subtest: 完整合同瘦身与省略 null 归一化；对保存的 literary 原始回答精确分类诊断并拦截 Farewell 寒暄误报
+ok 14 - 完整合同瘦身与省略 null 归一化；对保存的 literary 原始回答精确分类诊断并拦截 Farewell 寒暄误报
+  ---
+  duration_ms: 13.638239
+  ...
+# Subtest: T08 & P0-06 & P1-04：无日期多场次独立验证、言行不一行为观察提案与干运行预览、主观误解→后续修正认知链及群聊现场公开动作过滤与跨楼去重
+ok 15 - T08 & P0-06 & P1-04：无日期多场次独立验证、言行不一行为观察提案与干运行预览、主观误解→后续修正认知链及群聊现场公开动作过滤与跨楼去重
+  ---
+  duration_ms: 15.904592
+  ...
+# Subtest: 真实事件顺序模型：先结束再渲染双通知，只扣一次；五次其他 NPC 回复不消耗两次即时影响
+ok 16 - 真实事件顺序模型：先结束再渲染双通知，只扣一次；五次其他 NPC 回复不消耗两次即时影响
+  ---
+  duration_ms: 63.967098
+  ...
+# Subtest: 同文不同 swipe、续写、重生和返回 A 仅按当前选中分支推进
+ok 17 - 同文不同 swipe、续写、重生和返回 A 仅按当前选中分支推进
+  ---
+  duration_ms: 17.676787
+  ...
+# Subtest: 未落盘、仅思考、停止、工具、戏外输出不学习；单独重载已停止的部分文本仍不算
+ok 18 - 未落盘、仅思考、停止、工具、戏外输出不学习；单独重载已停止的部分文本仍不算
+  ---
+  duration_ms: 17.840823
+  ...
+# Subtest: 实际宿主形状四参数；不改卡/消息/预填充、关闭无残留；宏只在输出副本中转义
+ok 19 - 实际宿主形状四参数；不改卡/消息/预填充、关闭无残留；宏只在输出副本中转义
+  ---
+  duration_ms: 4.107286
+  ...
+# Subtest: 旧情绪插件只做公开配置级避让，已审 L1 保留且无情绪双抽
+ok 20 - 旧情绪插件只做公开配置级避让，已审 L1 保留且无情绪双抽
+  ---
+  duration_ms: 3.981208
+  ...
+# Subtest: 单人、群聊分别读取酒馆已存文件而非回传实时数组；检查 integrity
+ok 21 - 单人、群聊分别读取酒馆已存文件而非回传实时数组；检查 integrity
+  ---
+  duration_ms: 41.023221
+  ...
+# Subtest: P0: lifetime advances only for its owner and freezes completely
+ok 22 - P0: lifetime advances only for its owner and freezes completely
+  ---
+  duration_ms: 3.551451
+  ...
+# Subtest: P0: delete creates evidence block; user edits own the record
+ok 23 - P0: delete creates evidence block; user edits own the record
+  ---
+  duration_ms: 1.848972
+  ...
+# Subtest: P0: selected story determines fingerprint, including swipe index but excluding hidden reasoning
+ok 24 - P0: selected story determines fingerprint, including swipe index but excluding hidden reasoning
+  ---
+  duration_ms: 2.600045
+  ...
+# Subtest: 协议实际 HTTP 收发及拒绝矩阵 · openai
+ok 25 - 协议实际 HTTP 收发及拒绝矩阵 · openai
+  ---
+  duration_ms: 93.994264
+  ...
+# Subtest: 协议实际 HTTP 收发及拒绝矩阵 · compat
+ok 26 - 协议实际 HTTP 收发及拒绝矩阵 · compat
+  ---
+  duration_ms: 32.533404
+  ...
+# Subtest: 协议实际 HTTP 收发及拒绝矩阵 · deepseek
+ok 27 - 协议实际 HTTP 收发及拒绝矩阵 · deepseek
+  ---
+  duration_ms: 18.435087
+  ...
+# Subtest: 协议实际 HTTP 收发及拒绝矩阵 · router
+ok 28 - 协议实际 HTTP 收发及拒绝矩阵 · router
+  ---
+  duration_ms: 16.378042
+  ...
+# Subtest: 协议实际 HTTP 收发及拒绝矩阵 · gemini
+ok 29 - 协议实际 HTTP 收发及拒绝矩阵 · gemini
+  ---
+  duration_ms: 19.591936
+  ...
+# Subtest: 协议实际 HTTP 收发及拒绝矩阵 · vertex
+ok 30 - 协议实际 HTTP 收发及拒绝矩阵 · vertex
+  ---
+  duration_ms: 11.163965
+  ...
+# Subtest: 协议实际 HTTP 收发及拒绝矩阵 · claude
+ok 31 - 协议实际 HTTP 收发及拒绝矩阵 · claude
+  ---
+  duration_ms: 10.729021
+  ...
+# Subtest: 协议实际 HTTP 收发及拒绝矩阵 · ollama
+ok 32 - 协议实际 HTTP 收发及拒绝矩阵 · ollama
+  ---
+  duration_ms: 10.72957
+  ...
+# Subtest: Vertex 只信任服务端账号、固定目标、ADC；浏览器无法指定私钥、额外 URL 或借用别人的槽位；独立网关日配额跨重启持久原子计数
+ok 33 - Vertex 只信任服务端账号、固定目标、ADC；浏览器无法指定私钥、额外 URL 或借用别人的槽位；独立网关日配额跨重启持久原子计数
+  ---
+  duration_ms: 10.727193
+  ...
+# Subtest: 地址类型、重定向策略、固定路由、HTTP 局域网、响应层隔离
+ok 34 - 地址类型、重定向策略、固定路由、HTTP 局域网、响应层隔离
+  ---
+  duration_ms: 0.832627
+  ...
+# Subtest: 配置/账本/人格备份无会话凭证；401只暂停该档，绝不回退主模型；换目标清除授权凭证；HTTP 400 自动关闭 Schema 且不重发
+ok 35 - 配置/账本/人格备份无会话凭证；401只暂停该档，绝不回退主模型；换目标清除授权凭证；HTTP 400 自动关闭 Schema 且不重发
+  ---
+  duration_ms: 27.500196
+  ...
+# Subtest: 供应商返回损坏 JSON/流截断、取消和成功连接诊断都走同一计费入口
+ok 36 - 供应商返回损坏 JSON/流截断、取消和成功连接诊断都走同一计费入口
+  ---
+  duration_ms: 19.778882
+  ...
+# Subtest: 四种自由心理不是情绪卡；保留否定、混合及内隐，A 全待审、B 有条件采用、C 可撤销屏蔽
+ok 37 - 四种自由心理不是情绪卡；保留否定、混合及内隐，A 全待审、B 有条件采用、C 可撤销屏蔽
+  ---
+  duration_ms: 28.520287
+  ...
+# Subtest: 工作迟到、第三人声称、梦境、假设和无依据的心理均不自动采用
+ok 38 - 工作迟到、第三人声称、梦境、假设和无依据的心理均不自动采用
+  ---
+  duration_ms: 6.859314
+  ...
+# Subtest: 经过两个独立日期能在 C 形成人格；B、单日重述、基线未核对与反证都转人工
+ok 39 - 经过两个独立日期能在 C 形成人格；B、单日重述、基线未核对与反证都转人工
+  ---
+  duration_ms: 3.786292
+  ...
+# Subtest: 验证 L1 修订、反证削弱与目标事件结束；无变化保持合法
+ok 40 - 验证 L1 修订、反证削弱与目标事件结束；无变化保持合法
+  ---
+  duration_ms: 9.152944
+  ...
+# Subtest: 共存依然投影 L2/L3/L4；300 楼积累后主提示没有原文、摘要、分数、秘密或固定动作
+ok 41 - 共存依然投影 L2/L3/L4；300 楼积累后主提示没有原文、摘要、分数、秘密或固定动作
+  ---
+  duration_ms: 129.951974
+  ...
+# Subtest: 十人群聊：限定在场期间可见公开对白；带引号点名、他人内心秘密与渠道自然语言拒答准确区分
+ok 42 - 十人群聊：限定在场期间可见公开对白；带引号点名、他人内心秘密与渠道自然语言拒答准确区分
+  ---
+  duration_ms: 19.591926
+  ...
+# Subtest: 提示词语境相关性排序与行为对照盲评规则验证
+ok 43 - 提示词语境相关性排序与行为对照盲评规则验证
+  ---
+  duration_ms: 10.52295
+  ...
+# Subtest: T01 & P0-01：否定与条件语义100%保真（严禁将“绝对不能透露”删成“透露”）；越权指令隔离并记录 blocked_reason 与 fieldAudit
+ok 44 - T01 & P0-01：否定与条件语义100%保真（严禁将“绝对不能透露”删成“透露”）；越权指令隔离并记录 blocked_reason 与 fieldAudit
+  ---
+  duration_ms: 2.728005
+  ...
+# Subtest: P0-B & T15：高相关未置顶条目可竞争击败无关置顶项；自认为与外在观察严格分离；三角色五类情境 OFF/A/B 矩阵验证
+ok 45 - P0-B & T15：高相关未置顶条目可竞争击败无关置顶项；自认为与外在观察严格分离；三角色五类情境 OFF/A/B 矩阵验证
+  ---
+  duration_ms: 10.579097
+  ...
+# Subtest: 有历史差异且弹窗关 → 静默停止，不选择未来或同层 sibling；逐字共同前缀才可显式载入
+ok 46 - 有历史差异且弹窗关 → 静默停止，不选择未来或同层 sibling；逐字共同前缀才可显式载入
+  ---
+  duration_ms: 43.496456
+  ...
+# Subtest: 文本相同但修订不同 → 恢复指定人工历史；取消操作不改变档案
+ok 47 - 文本相同但修订不同 → 恢复指定人工历史；取消操作不改变档案
+  ---
+  duration_ms: 7.017902
+  ...
+# Subtest: 导入旧 v3 快照：原对象原库不变，人工锁定保留，自动推论隔离，同文不同 swipe 有歧义时拒绝
+ok 48 - 导入旧 v3 快照：原对象原库不变，人工锁定保留，自动推论隔离，同文不同 swipe 有歧义时拒绝
+  ---
+  duration_ms: 8.267895
+  ...
+# Subtest: 完整备份跨库；增量只能补到同一来源及精确的起始修订；活动库不被覆盖
+ok 49 - 完整备份跨库；增量只能补到同一来源及精确的起始修订；活动库不被覆盖
+  ---
+  duration_ms: 6.266779
+  ...
+# Subtest: 新设备仅有聊天元数据：无库时不伪造状态，玩家可选从已存文本重新建立索引
+ok 50 - 新设备仅有聊天元数据：无库时不伪造状态，玩家可选从已存文本重新建立索引
+  ---
+  duration_ms: 4.710804
+  ...
+# Subtest: 旧设备同时编辑：过时修订不能覆写新窗口玩家修改
+ok 51 - 旧设备同时编辑：过时修订不能覆写新窗口玩家修改
+  ---
+  duration_ms: 5.994766
+  ...
+# Subtest: 默认不调用模型；主动开启后沿用 generateRaw，不传外部地址/模型/思考参数；历史不自动再收费
+ok 52 - 默认不调用模型；主动开启后沿用 generateRaw，不传外部地址/模型/思考参数；历史不自动再收费
+  ---
+  duration_ms: 43.308639
+  ...
+# Subtest: JSON 截断和服务错误也占额度；同批不静默重试，显式 retry 才允许重发失败批次，累计/日/会话上限可设 0
+ok 53 - JSON 截断和服务错误也占额度；同批不静默重试，显式 retry 才允许重发失败批次，累计/日/会话上限可设 0
+  ---
+  duration_ms: 36.705459
+  ...
+# Subtest: 显式 schema 只影响独立分析；不支持时下次改普通 JSON，不自动补第二次请求
+ok 54 - 显式 schema 只影响独立分析；不支持时下次改普通 JSON，不自动补第二次请求
+  ---
+  duration_ms: 4.09372
+  ...
+# Subtest: 在途分析遇到编辑/聊天切换/分支更换：丢弃结果，不使用宿主停止键；真正底层结束前不并发
+ok 55 - 在途分析遇到编辑/聊天切换/分支更换：丢弃结果，不使用宿主停止键；真正底层结束前不并发
+  ---
+  duration_ms: 22.408477
+  ...
+# Subtest: 超时返回控制权；迟到结果被丢弃，直到原始调用 settled 才释放独占分析锁
+ok 56 - 超时返回控制权；迟到结果被丢弃，直到原始调用 settled 才释放独占分析锁
+  ---
+  duration_ms: 17.592786
+  ...
+# Subtest: 多标签页同配置档在途原子互斥与自动分析待发队列跨刷新恢复
+ok 57 - 多标签页同配置档在途原子互斥与自动分析待发队列跨刷新恢复
+  ---
+  duration_ms: 8.4131
+  ...
+# Subtest: T06：达到9次后因日限额失败保留锚点，刷新并提升限额后按批次精确 ACK，不丢剩余片段且不造假人格
+ok 58 - T06：达到9次后因日限额失败保留锚点，刷新并提升限额后按批次精确 ACK，不丢剩余片段且不造假人格
+  ---
+  duration_ms: 50.41201
+  ...
+# Subtest: T02 & P0-02：batchSize=2 累计12次有效回复仅逐批 ACK 实际覆盖来源（含同楼多片段完整性）；101/120锚点与超 queueLimit 背压零丢弃；来源状态严格守恒
+ok 59 - T02 & P0-02：batchSize=2 累计12次有效回复仅逐批 ACK 实际覆盖来源（含同楼多片段完整性）；101/120锚点与超 queueLimit 背压零丢弃；来源状态严格守恒
+  ---
+  duration_ms: 69.150633
+  ...
+# Subtest: T03 & P0-03：发出断网后继续 1/5/20 楼 RP → 点击重试旧批仅重发原冻结 BatchManifest 来源，新楼留在队列；原消息被改或改配置时预检拒绝且不破坏失败状态
+ok 60 - T03 & P0-03：发出断网后继续 1/5/20 楼 RP → 点击重试旧批仅重发原冻结 BatchManifest 来源，新楼留在队列；原消息被改或改配置时预检拒绝且不破坏失败状态
+  ---
+  duration_ms: 31.474556
+  ...
+# Subtest: T04 & T05（P0-04 & 事务回滚）：Tab A claim 后旧内存 saveQueue 不覆盖租约；租约到期后过期 fencingToken 迟到提交被拒绝且当 sent=true 时转人工核验不重发；commitAnalysis 故障注入全回滚
+ok 61 - T04 & T05（P0-04 & 事务回滚）：Tab A claim 后旧内存 saveQueue 不覆盖租约；租约到期后过期 fencingToken 迟到提交被拒绝且当 sent=true 时转人工核验不重发；commitAnalysis 故障注入全回滚
+  ---
+  duration_ms: 9.060409
+  ...
+# Subtest: P2: actual Chinese panel creates, edits, freezes and deletes safely; no HTML execution; mobile profile modal resets consent on model rename; proposal diff preview & cost ledger modal work
+ok 62 - P2: actual Chinese panel creates, edits, freezes and deletes safely; no HTML execution; mobile profile modal resets consent on model rename; proposal diff preview & cost ledger modal work
+  ---
+  duration_ms: 285.945363
+  ...
+# Subtest: P2: recovery dialog exposes restore/rebuild/disable/cancel and resolves cancellation
+ok 63 - P2: recovery dialog exposes restore/rebuild/disable/cancel and resolves cancellation
+  ---
+  duration_ms: 1.013125
+  ...
+1..63
+# tests 63
+# suites 0
+# pass 63
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2695.564731

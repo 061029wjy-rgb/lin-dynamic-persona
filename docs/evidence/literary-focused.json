@@ -1,0 +1,192 @@
+{
+  "kind": "公共领域既有剧本回放；真实本地推理，非玩家群聊或付费渠道",
+  "corpusSha256": "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed",
+  "model": "qwen2.5-1.5b-local",
+  "turnsPerBranch": 215,
+  "runs": [
+    {
+      "scenario": "罗马市民与将领",
+      "branch": "A",
+      "population": 24,
+      "actor": "COMINIUS",
+      "tip": "fc8c984c5995a8d382329f3d",
+      "sourceLines": [
+        {
+          "floor": 215,
+          "text": "We render you the tenth, to be ta'en forth,"
+        },
+        {
+          "floor": 215,
+          "text": "Before the common distribution, at"
+        },
+        {
+          "floor": 215,
+          "text": "Your only choice."
+        }
+      ],
+      "usage": {
+        "input": 196,
+        "output": 30,
+        "total": 226
+      },
+      "finish": "stop",
+      "raw": "{\"signals\":[{\"source\":\"s1\",\"quote\":\"We render you the tenth, to be ta'en forth,\",\"feeling\":\"惊恐\"}]}",
+      "status": "拒收或失败",
+      "error": "精简提议缺少唯一、逐字、本人原文。"
+    },
+    {
+      "scenario": "罗马市民与将领",
+      "branch": "B",
+      "population": 24,
+      "actor": "MENENIUS",
+      "tip": "175f8e8a25c35e1936ba7304",
+      "sourceLines": [
+        {
+          "floor": 215,
+          "text": "Ay, to devour him;"
+        },
+        {
+          "floor": 215,
+          "text": "as the hungry plebeians would the"
+        },
+        {
+          "floor": 215,
+          "text": "noble Marcius."
+        }
+      ],
+      "usage": {
+        "input": 194,
+        "output": 23,
+        "total": 217
+      },
+      "finish": "stop",
+      "raw": "{\"signals\":[{\"source\":\"s1\",\"quote\":\"Ay, to devour him;\",\"feeling\":\"害怕\"}]}",
+      "status": "拒收或失败",
+      "error": "精简提议缺少唯一、逐字、本人原文。"
+    },
+    {
+      "scenario": "宫廷与亲族",
+      "branch": "A",
+      "population": 13,
+      "actor": "Nurse",
+      "tip": "986a9b9fa99d4e7d6ee80d04",
+      "sourceLines": [
+        {
+          "floor": 215,
+          "text": "And Tybalt calls;"
+        },
+        {
+          "floor": 215,
+          "text": "and then on Romeo cries,"
+        },
+        {
+          "floor": 215,
+          "text": "And then down falls again."
+        }
+      ],
+      "usage": {
+        "input": 192,
+        "output": 26,
+        "total": 218
+      },
+      "finish": "stop",
+      "raw": "{\"signals\":[{\"source\":\"s1\",\"quote\":\"And Tybalt calls;\",\"feeling\":\"感到被叫唤\"}]}",
+      "status": "拒收或失败",
+      "error": "精简提议缺少唯一、逐字、本人原文。"
+    },
+    {
+      "scenario": "宫廷与亲族",
+      "branch": "B",
+      "population": 13,
+      "actor": "ROMEO",
+      "tip": "daaebe74e087a575ff3b3cb7",
+      "sourceLines": [
+        {
+          "floor": 215,
+          "text": "Farewell!"
+        },
+        {
+          "floor": 215,
+          "text": "I will omit no opportunity"
+        },
+        {
+          "floor": 215,
+          "text": "That may convey my greetings, love, to thee."
+        }
+      ],
+      "usage": {
+        "input": 194,
+        "output": 24,
+        "total": 218
+      },
+      "finish": "stop",
+      "raw": "{\"signals\":[{\"source\":\"s1\",\"quote\":\"Farewell!\",\"feeling\":\"Farewell!\"}]}",
+      "status": "结构与来源通过",
+      "events": 1,
+      "proposals": 1,
+      "adopted": 0
+    },
+    {
+      "scenario": "后段人物与责任",
+      "branch": "A",
+      "population": 13,
+      "actor": "LUCIO",
+      "tip": "e05af6cff1c18563eac6b42e",
+      "sourceLines": [
+        {
+          "floor": 215,
+          "text": "to-morrow. By my troth, Isabel, I loved thy brother:"
+        },
+        {
+          "floor": 215,
+          "text": "if the old fantastical duke of dark corners had been"
+        },
+        {
+          "floor": 215,
+          "text": "at home, he had lived."
+        }
+      ],
+      "usage": {
+        "input": 208,
+        "output": 76,
+        "total": 284
+      },
+      "finish": "stop",
+      "raw": "{\"signals\":[{\"source\":\"s1\",\"quote\":\"to-morrow.\",\"feeling\":\"期待明天\"},{\"source\":\"s2\",\"quote\":\"By my troth, Isabel, I loved thy brother:\",\"feeling\":\"对弟弟的深情\"},{\"source\":\"s3\",\"quote\":\"if the old fantastical duke of dark corners had been\",\"feeling\":\"对过去生活的怀念\"}]}",
+      "status": "拒收或失败",
+      "error": "精简分析结构不符。"
+    },
+    {
+      "scenario": "后段人物与责任",
+      "branch": "B",
+      "population": 15,
+      "actor": "ANGELO",
+      "tip": "a52f4b6848bb587055bff0d9",
+      "sourceLines": [
+        {
+          "floor": 204,
+          "text": "A lack, when once our grace we have forgot,"
+        },
+        {
+          "floor": 204,
+          "text": "Nothing goes right: we would, and we would not."
+        },
+        {
+          "floor": 215,
+          "text": "Happy return be to your royal grace!"
+        }
+      ],
+      "usage": {
+        "input": 209,
+        "output": 36,
+        "total": 245
+      },
+      "finish": "stop",
+      "raw": "{\"signals\":[{\"source\":\"s1\",\"quote\":\"A lack, when once our grace we have forgot\",\"feeling\":\"A lack, when once our grace we have forgot\"}]}",
+      "status": "结构与来源通过",
+      "events": 1,
+      "proposals": 1,
+      "adopted": 0
+    }
+  ]
+}

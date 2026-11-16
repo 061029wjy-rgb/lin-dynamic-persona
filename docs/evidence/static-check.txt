@@ -1,0 +1,5 @@
+
+> lin-dynamic-persona@0.6.0 check
+> node scripts/check.mjs
+
+Syntax, browser ESM specifier, manifest, version and host-mutation checks passed.

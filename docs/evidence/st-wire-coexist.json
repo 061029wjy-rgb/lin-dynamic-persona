@@ -1,0 +1,56 @@
+{
+  "provider": "本机 HTTP 接收器（固定回复，用于验收传输）",
+  "role": "system",
+  "before": [],
+  "after": [
+    {
+      "role": "system",
+      "content": "【Seraphina的本轮权衡】\n当下感受：先核实工作清单，才放心把交接留给别人。\n可自行取舍，感受可以不外显；不替玩家作决定。"
+    }
+  ],
+  "diagnostics": [
+    {
+      "contract": "projection/5.0",
+      "actor": "default_Seraphina.png",
+      "slot": "IN_PROMPT/SYSTEM",
+      "included": [
+        "800f85e6-8549-4b27-b07c-cb6badd0e2cf"
+      ],
+      "candidates": [
+        {
+          "key": "800f85e6-8549-4b27-b07c-cb6badd0e2cf",
+          "kind": "immediate",
+          "sources": [],
+          "reason": "已采用、在当前范围；当下感受"
+        }
+      ],
+      "skipped": [],
+      "tokens": 74,
+      "method": "酒馆分词器",
+      "budget": 700,
+      "turn": "normal",
+      "room": "[\"character:default_Seraphina.png\",\"LDP-QA-1794836092958\"]",
+      "branch": "6b129cc9506226c3c9bde575701a5d07d4fab06ac9979296ff2e1ebd2586216c",
+      "memories": [],
+      "mode": "本地全文 BM25",
+      "coop": "coexist",
+      "最终演出提示": "【Seraphina的本轮权衡】\n当下感受：先核实工作清单，才放心把交接留给别人。\n可自行取舍，感受可以不外显；不替玩家作决定。"
+    },
+    "已核对存档 · 本地中文全文索引\n保存影响：已保存。\n本轮已注入一段角色资料。"
+  ],
+  "preview": "【Seraphina的本轮权衡】\n当下感受：先核实工作清单，才放心把交接留给别人。\n可自行取舍，感受可以不外显；不替玩家作决定。",
+  "coexist": "coexist",
+  "receiverPath": "/v1/chat/completions",
+  "savedReply": "I will check the list after lunch.",
+  "disabled": {
+    "count": 0,
+    "receiverPath": "/v1/chat/completions"
+  },
+  "calls": 2,
+  "version": "153.0.8010.0",
+  "viewport": {
+    "width": 430,
+    "height": 920
+  },
+  "status": "passed"
+}

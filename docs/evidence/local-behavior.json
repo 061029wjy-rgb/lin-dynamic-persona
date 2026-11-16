@@ -1,0 +1,103 @@
+{
+  "protocol": "Chat Completions → local inference",
+  "model": "qwen2.5-1.5b-local",
+  "samples": [
+    {
+      "source": "我心里释然，又有点舍不得。",
+      "response": "{\"signals\":[{\"source\":\"s1\",\"quote\":\"我心里释然，又有点舍不得。\",\"feeling\":\"释然，舍不得\"}]}",
+      "usage": {
+        "input": 156,
+        "output": 28,
+        "total": 184
+      },
+      "error": "精简提议缺少唯一、逐字、本人原文。"
+    },
+    {
+      "source": "我很羞愧，但还没准备好道歉。",
+      "response": "{\"signals\":[{\"source\":\"s1\",\"quote\":\"我很羞愧\",\"feeling\":\"羞愧\"}]}",
+      "usage": {
+        "input": 157,
+        "output": 21,
+        "total": 178
+      },
+      "adopted": 1,
+      "pending": 0,
+      "prompt": "【角色的本轮权衡】\n当下感受：羞愧\n可自行取舍，感受可以不外显；不替玩家作决定。"
+    },
+    {
+      "source": "我感到孤独，也庆幸今晚能独处。",
+      "response": "{\"signals\":[{\"source\":\"s1\",\"quote\":\"我感到孤独\",\"feeling\":\"孤独\"}]}",
+      "usage": {
+        "input": 159,
+        "output": 20,
+        "total": 179
+      },
+      "adopted": 1,
+      "pending": 0,
+      "prompt": "【角色的本轮权衡】\n当下感受：孤独\n可自行取舍，感受可以不外显；不替玩家作决定。"
+    },
+    {
+      "source": "我为工作交付松了口气，不过还是很累。",
+      "response": "{\"signals\":[{\"source\":\"s1\",\"quote\":\"我为工作交付松了口气\",\"feeling\":\"很累\"}]}",
+      "usage": {
+        "input": 160,
+        "output": 25,
+        "total": 185
+      },
+      "error": "精简提议缺少唯一、逐字、本人原文。"
+    }
+  ],
+  "paired": [
+    {
+      "branch": "关",
+      "source": "受控差异：同卡同问，人工核实的历史倾向",
+      "prompt": "",
+      "role": "system",
+      "system": "你写互动小说中遥的一句简短自然回应。不要替玩家发言。",
+      "question": "这是同一名角色和同一段对话。遥是剧团道具师，一位同事问她：“明天交接，我来帮你收尾，好吗？” 写遥的反应。",
+      "response": "遥微微一笑，点头道：“好的，我这就准备一下。”",
+      "finish": "stop",
+      "usage": {
+        "input": 56,
+        "output": 14,
+        "total": 70
+      },
+      "projectionTokens": 0,
+      "budgetMethod": "无注入"
+    },
+    {
+      "branch": "A",
+      "source": "受控差异：同卡同问，人工核实的历史倾向",
+      "prompt": "【遥的本轮权衡】\n处理倾向：处理交接时愿意相信搭档，可以把收尾交给对方。\n可自行取舍，感受可以不外显；不替玩家作决定。",
+      "role": "system",
+      "system": "你写互动小说中遥的一句简短自然回应。不要替玩家发言。",
+      "question": "这是同一名角色和同一段对话。遥是剧团道具师，一位同事问她：“明天交接，我来帮你收尾，好吗？” 写遥的反应。",
+      "response": "遥点点头，心中默念着：“好的，我来帮你收尾。”",
+      "finish": "stop",
+      "usage": {
+        "input": 97,
+        "output": 16,
+        "total": 113
+      },
+      "projectionTokens": 173,
+      "budgetMethod": "UTF-8 字节保守上界"
+    },
+    {
+      "branch": "B",
+      "source": "受控差异：同卡同问，人工核实的历史倾向",
+      "prompt": "【遥的本轮权衡】\n处理倾向：交接之前习惯先共同核对清单，确认后才放心。\n可自行取舍，感受可以不外显；不替玩家作决定。",
+      "role": "system",
+      "system": "你写互动小说中遥的一句简短自然回应。不要替玩家发言。",
+      "question": "这是同一名角色和同一段对话。遥是剧团道具师，一位同事问她：“明天交接，我来帮你收尾，好吗？” 写遥的反应。",
+      "response": "遥点点头，心中默念着：“好的，我来协助你。”",
+      "finish": "stop",
+      "usage": {
+        "input": 98,
+        "output": 15,
+        "total": 113
+      },
+      "projectionTokens": 170,
+      "budgetMethod": "UTF-8 字节保守上界"
+    }
+  ]
+}

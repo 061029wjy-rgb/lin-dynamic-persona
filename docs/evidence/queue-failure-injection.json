@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-11-16T16:54:08.234Z",
+  "build": "LDP-0.6.0-handoff.1",
+  "t01SemanticPreservationSample": {
+    "ok": true,
+    "missingNegations": [],
+    "missingConditions": [],
+    "subjectivePreserved": true
+  },
+  "t02PartialAckAndConservation": {
+    "initialQueuedSources": 12,
+    "batchSize": 2,
+    "afterBatch1": {
+      "acknowledgedCount": 2,
+      "remainingQueuedCount": 10,
+      "conserved": true
+    },
+    "afterDrainAll": {
+      "totalBatchesDispatched": 6,
+      "acknowledgedCount": 12,
+      "remainingQueuedCount": 0,
+      "conserved": true
+    }
+  },
+  "nineTurnsDailyLimitInjection": {
+    "callsDuringZeroLimit": 0,
+    "retainedAnchorsCountBeforeRefresh": 9,
+    "statusBeforeRefresh": "waiting_budget",
+    "waitReasonBeforeRefresh": "已达当前分析预算（每日（UTC）上限），未发出模型请求。",
+    "retainedAnchorsCountAfterRefresh": 9,
+    "callsAfterRaisingDailyLimit": 1,
+    "processedAnchorsAfterCommit": 18,
+    "remainingQueuesAfterCommitAck": 0
+  }
+}

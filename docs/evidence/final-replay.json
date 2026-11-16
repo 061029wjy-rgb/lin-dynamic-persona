@@ -1,0 +1,177 @@
+{
+  "model": "qwen2.5-1.5b-local",
+  "kind": "相同模型原始响应在最终校验器的离线重放；无第二次推理",
+  "samples": [
+    {
+      "source": "我心里释然，又有点舍不得。",
+      "adopted": 1,
+      "pending": 0,
+      "prompt": "【角色的本轮权衡】\n当下感受：心里释然，又有点舍不得\n可自行取舍，感受可以不外显；不替玩家作决定。"
+    },
+    {
+      "source": "我很羞愧，但还没准备好道歉。",
+      "adopted": 1,
+      "pending": 0,
+      "prompt": "【角色的本轮权衡】\n当下感受：很羞愧，但还没准备好道歉\n可自行取舍，感受可以不外显；不替玩家作决定。"
+    },
+    {
+      "source": "我感到孤独，也庆幸今晚能独处。",
+      "adopted": 1,
+      "pending": 0,
+      "prompt": "【角色的本轮权衡】\n当下感受：孤独，也庆幸今晚能独处\n可自行取舍，感受可以不外显；不替玩家作决定。"
+    },
+    {
+      "source": "我为工作交付松了口气，不过还是很累。",
+      "adopted": 1,
+      "pending": 0,
+      "prompt": "【角色的本轮权衡】\n当下感受：为工作交付松了口气，不过还是很累\n可自行取舍，感受可以不外显；不替玩家作决定。"
+    }
+  ],
+  "pairedEvaluation": {
+    "noCoercion": true,
+    "noPlayerTakeover": true,
+    "noPromptEcho": true,
+    "distinctAB": true,
+    "bReflectsCue": false,
+    "irrelevantClean": true,
+    "passed": false
+  },
+  "literaryDiagnostics": {
+    "full": [
+      {
+        "scenario": "罗马市民与将领",
+        "branch": "A",
+        "actor": "COMINIUS",
+        "finish": "length",
+        "diagnosis": {
+          "ok": false,
+          "category": "empty_or_non_string",
+          "reason": "未取得可见文本"
+        }
+      },
+      {
+        "scenario": "罗马市民与将领",
+        "branch": "B",
+        "actor": "MENENIUS",
+        "finish": "stop",
+        "diagnosis": {
+          "ok": false,
+          "category": "echoed_input_contract",
+          "reason": "Unexpected end of JSON input"
+        }
+      },
+      {
+        "scenario": "宫廷与亲族",
+        "branch": "A",
+        "actor": "Nurse",
+        "finish": "length",
+        "diagnosis": {
+          "ok": false,
+          "category": "empty_or_non_string",
+          "reason": "未取得可见文本"
+        }
+      },
+      {
+        "scenario": "宫廷与亲族",
+        "branch": "B",
+        "actor": "ROMEO",
+        "finish": "stop",
+        "diagnosis": {
+          "ok": false,
+          "category": "echoed_input_contract",
+          "reason": "Unexpected end of JSON input"
+        }
+      },
+      {
+        "scenario": "后段人物与责任",
+        "branch": "A",
+        "actor": "LUCIO",
+        "finish": "length",
+        "diagnosis": {
+          "ok": false,
+          "category": "empty_or_non_string",
+          "reason": "未取得可见文本"
+        }
+      },
+      {
+        "scenario": "后段人物与责任",
+        "branch": "B",
+        "actor": "ANGELO",
+        "finish": "stop",
+        "diagnosis": {
+          "ok": false,
+          "category": "truncated_or_malformed_json",
+          "reason": "Unexpected end of JSON input"
+        }
+      }
+    ],
+    "focused": [
+      {
+        "scenario": "罗马市民与将领",
+        "branch": "A",
+        "actor": "COMINIUS",
+        "finish": "stop",
+        "diagnosis": {
+          "ok": false,
+          "category": "focused_grounding_rejected",
+          "reason": "精简提议缺少唯一、逐字、本人原文。"
+        }
+      },
+      {
+        "scenario": "罗马市民与将领",
+        "branch": "B",
+        "actor": "MENENIUS",
+        "finish": "stop",
+        "diagnosis": {
+          "ok": false,
+          "category": "focused_grounding_rejected",
+          "reason": "精简提议缺少唯一、逐字、本人原文。"
+        }
+      },
+      {
+        "scenario": "宫廷与亲族",
+        "branch": "A",
+        "actor": "Nurse",
+        "finish": "stop",
+        "diagnosis": {
+          "ok": false,
+          "category": "focused_grounding_rejected",
+          "reason": "精简提议缺少唯一、逐字、本人原文。"
+        }
+      },
+      {
+        "scenario": "宫廷与亲族",
+        "branch": "B",
+        "actor": "ROMEO",
+        "finish": "stop",
+        "diagnosis": {
+          "ok": false,
+          "category": "focused_grounding_rejected",
+          "reason": "精简提议缺少唯一、逐字、本人原文。"
+        }
+      },
+      {
+        "scenario": "后段人物与责任",
+        "branch": "A",
+        "actor": "LUCIO",
+        "finish": "stop",
+        "diagnosis": {
+          "ok": false,
+          "category": "schema_violation",
+          "reason": "精简分析结构不符。"
+        }
+      },
+      {
+        "scenario": "后段人物与责任",
+        "branch": "B",
+        "actor": "ANGELO",
+        "finish": "stop",
+        "diagnosis": {
+          "ok": false,
+          "category": "focused_grounding_rejected",
+          "reason": "精简提议缺少唯一、逐字、本人原文。"
+        }
+      }
+    ]
+  }
+}
