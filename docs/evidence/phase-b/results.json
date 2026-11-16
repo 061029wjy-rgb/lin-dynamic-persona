@@ -1,0 +1,28 @@
+{
+  "build": "LDP-0.7.0-stage-B.1",
+  "date": "2026-11-17",
+  "baseline": {
+    "total": 78,
+    "passed": 74,
+    "failed": 4
+  },
+  "tests": {
+    "total": 108,
+    "passed": 108,
+    "failed": 0,
+    "skipped": 0
+  },
+  "originalTests": 63,
+  "stageATests": 15,
+  "stageBTests": 30,
+  "staticCheck": "passed",
+  "stageAStorageCases": {
+    "passed": 15,
+    "failed": 0
+  },
+  "nativeBrowserRetest": "blocked: socket() failed: Operation not permitted (1)",
+  "liveSillyTavern": "not run",
+  "tauri": "not run",
+  "paidProviderCalls": 0,
+  "productionReady": false
+}
