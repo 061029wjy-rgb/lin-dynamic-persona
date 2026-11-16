@@ -1,0 +1,24 @@
+{
+  "name": "lin-dynamic-persona",
+  "version": "0.7.0",
+  "build": "LDP-0.7.0-stage-B.1",
+  "commit": "64aa16aa0fb41f02d774a0afd155f4bfd9eaf408",
+  "stage": "B",
+  "productionReady": false,
+  "baselineCommit": "c55bd0bcddaccbf9ede39d29d4118dd2e5231849",
+  "inputStageAZipSha256": "896e41088967ef30e14c391f8e65afbd3bb0c07937fc3b96ab92773682888838",
+  "inputStageABundleSha256": "27aa5986731afbe3f83fc8ae72d3869e8f9b268999d7ced8e65c03e79784cbfd",
+  "gitBundleSha256": "c019829a7c03475c2ed21a9a6bbc056032158af0408d533f5ad69083061079e1",
+  "physicalDbVersion": 6,
+  "personaBackupVersion": 5,
+  "localTests": {
+    "total": 108,
+    "passed": 108,
+    "failed": 0,
+    "skipped": 0
+  },
+  "nativeBrowserRetest": "blocked: Chromium socket EPERM",
+  "liveHostAcceptance": "not run",
+  "paidProviderCalls": 0,
+  "delivery": "完成阶段 B 接线的隔离测试构建；真实宿主及原生浏览器复测通过前不用于替换正式插件。"
+}
