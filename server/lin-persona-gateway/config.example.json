@@ -1,0 +1,8 @@
+{
+  "slots": {
+    "studio": {"kind":"gemini","model":"REPLACE_WITH_MODEL_ID","keyEnv":"LDP_STUDIO_KEY","users":["default-user"],"serverDaily":20},
+    "vertex": {"kind":"vertex","project":"replace-with-project","region":"global","model":"REPLACE_WITH_MODEL_ID","apiVersion":"v1","users":["default-user"],"serverDaily":10},
+    "desk": {"kind":"ollama","model":"my-local-model","url":"http://127.0.0.1:11434","allowLAN":true,"users":["default-user"]}
+  },
+  "origins":[], "clients":{}
+}
