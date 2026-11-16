@@ -1,3 +1,4 @@
+import './shims/indexeddb.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { emptyState, normalizeInfluence, tick, removeInfluence, userEdit } from '../src/model.js';
@@ -16,10 +17,10 @@ test('P0: delete creates evidence block; user edits own the record', () => {
  const deleted = removeInfluence(s, x.id); assert.equal(deleted.influences.length, 0); assert.deepEqual(deleted.blocks[0].evidence, ['source']);
  assert.equal(userEdit(s, { ...x, description: '玩家改写' }, 'fang.png').influences[0].managedBy, 'user');
 });
-test('P0: selected story determines fingerprint, not swipe index or hidden reasoning', async () => {
+test('P0: selected story determines fingerprint, including swipe index but excluding hidden reasoning', async () => {
  const f = new Fingerprints(), a = [{ name: '方', mes: '回来了', extra: { reasoning: 'secret' } }];
  const p = await f.of(a); a[0].swipe_id = 3; a[0].extra.reasoning = 'changed';
- assert.equal((await f.of(a))[1].hash, p[1].hash);
+ assert.notEqual((await f.of(a))[1].hash,p[1].hash);a[0].swipe_id=0;assert.equal((await f.of(a))[1].hash,p[1].hash);
  a[0].mes = '没有回来'; assert.notEqual((await f.of(a))[1].hash, p[1].hash);
  assert.equal(visible('<think>secret</think>你好'), '你好');
 });

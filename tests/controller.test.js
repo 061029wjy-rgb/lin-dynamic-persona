@@ -1,71 +1,27 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import { EventEmitter } from 'node:events';
-import { IDBFactory } from 'fake-indexeddb';
-import { Controller } from '../src/controller.js';
-import { Database } from '../src/storage.js';
-import { KEY, clone } from '../src/util.js';
-import { userEdit } from '../src/model.js';
-import { compose } from '../src/prompt.js';
-const events = Object.fromEntries(['GENERATION_STARTED','GENERATION_STOPPED','GENERATION_ENDED','CHARACTER_MESSAGE_RENDERED','CHAT_CHANGED','CHAT_LOADED','MESSAGE_SWIPED','MESSAGE_EDITED','MESSAGE_UPDATED','MESSAGE_DELETED','MESSAGE_SENT','APP_READY'].map(e => [e,e]));
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-async function fixture(recovery = async () => 'restore') {
- const prompts = [], c = { extensionSettings: {}, chatMetadata: {}, chatId: 'a', characterId: 0, characters: [{ name: '方', avatar: 'fang.png', personality: '克制' }], chat: [{ name: '林', is_user: true, mes: '工作来了' }], eventTypes: events, eventSource: new EventEmitter(), getCurrentChatId() { return this.chatId; }, saveSettingsDebounced() {}, saveMetadataDebounced() {}, getTokenCountAsync: async s => s.length, setExtensionPrompt: (...p) => prompts.push(p) };
- const db = new Database('test', new IDBFactory()), ctrl = new Controller(() => c, { db, recovery }); ctrl.bind(); ctrl.changeSettings({ autoAnalyze: false, expressive: false, promptBudget: 1200 }); await ctrl.enqueue(() => ctrl.sync());
- await ctrl.mutate(s => userEdit(s, { id: 'mood', layer: 'immediate', description: '工作带来的暂时烦躁', duration: { mode: 'turns', remaining: 3 } }, 'fang.png'), '添加');
- return { ctrl, c, prompts };
-}
-async function generate(f, kind, message) {
- f.c.eventSource.emit(events.GENERATION_STARTED, kind, {}, false);
- if (kind === 'regenerate') f.c.chat.pop();
- await f.ctrl.intercept([], 10000, kind);
- if (kind === 'swipe' || kind === 'continue') f.c.chat.at(-1).mes = message;
- else f.c.chat.push({ name: '方', mes: message });
- f.c.eventSource.emit(events.GENERATION_ENDED);
- f.c.eventSource.emit(events.CHARACTER_MESSAGE_RENDERED, f.c.chat.length - 1, kind);
- await sleep(650); await f.ctrl.chain;
-}
-test('P2: end-before-render order, repeated swipes, regeneration and continue never double-tick', async () => {
- const f = await fixture(); await generate(f, 'normal', '第一稿'); assert.equal(f.ctrl.timeline.node.state.influences[0].duration.remaining, 2);
- await generate(f, 'swipe', '第二稿'); assert.equal(f.ctrl.timeline.node.state.influences[0].duration.remaining, 2);
- await generate(f, 'regenerate', '第三稿'); assert.equal(f.ctrl.timeline.node.state.influences[0].duration.remaining, 2);
- await generate(f, 'continue', '第三稿追加'); assert.equal(f.ctrl.timeline.node.state.influences[0].duration.remaining, 2);
- f.ctrl.dispose();
+import test from 'node:test';import assert from 'node:assert/strict';import {fixture,turn,add,mood,get,U,R,A,B} from './host-fixture.js';import {KEY} from '../src/util.js';import {diskChat} from '../src/sources.js';
+test('真实事件顺序模型：先结束再渲染双通知，只扣一次；五次其他 NPC 回复不消耗两次即时影响',async()=>{
+ const f=await fixture({group:true});await mood(f,2);await turn(f,'沈青把杯子拿到窗边。');assert.equal(get(f,'mood').duration.remaining,1);
+ for(let i=0;i<5;i++)await turn(f,'余宁在做自己的工作。'+i,{who:B,user:'余宁，轮到你了。'});assert.equal(get(f,'mood').duration.remaining,1);
+ await turn(f,'沈青合上琴盖。',{user:'沈青，准备好了吗？'});assert.equal(get(f,'mood').duration.remaining,0);assert.equal(f.ctl.timeline.node.state.turns[B.avatar],5);f.ctl.dispose();
 });
-test('P2: stopped generation never consumes a turn and reload retains that decision', async () => {
- const f = await fixture(); f.c.eventSource.emit(events.GENERATION_STARTED, 'normal', {}, false); await f.ctrl.intercept([], 10000, 'normal');
- f.c.chat.push({ name: '方', mes: '部分输出' }); f.c.eventSource.emit(events.GENERATION_STOPPED); f.c.eventSource.emit(events.CHARACTER_MESSAGE_RENDERED, 1, 'normal');
- await sleep(30); await f.ctrl.chain; assert.equal(f.ctrl.timeline.node.state.influences[0].duration.remaining, 3);
- f.ctrl.skipHashes.clear(); await f.ctrl.enqueue(() => f.ctrl.sync()); assert.equal(f.ctrl.timeline.node.state.influences[0].duration.remaining, 3); f.ctrl.dispose();
+test('同文不同 swipe、续写、重生和返回 A 仅按当前选中分支推进',async()=>{
+ const f=await fixture();await mood(f,3);await turn(f,'沈青在本上写下一个字。');await add(f,'red','只在 A 中记录红纸。');const branch=structuredClone(f.c.chat);assert.equal(get(f,'mood').duration.remaining,2);
+ await turn(f,'沈青在本上写下一个字。',{type:'swipe',swipe:1});assert.equal(get(f,'red'),undefined);await add(f,'blue','B 中选择蓝纸。');await turn(f,'沈青在本上写下一个字。又补了一行。',{type:'continue',swipe:1});assert.equal(get(f,'mood').duration.remaining,2);assert.ok(get(f,'blue'));assert.equal(f.ctl.timeline.node.state.turns[A.avatar],1);
+ f.c.chat=branch;f.save();f.ctl.knownSelection=true;await f.ctl.sync();assert.ok(get(f,'red'));assert.equal(get(f,'blue'),undefined);
+ await turn(f,'沈青换了一种新的安排。',{type:'regenerate'});assert.equal(get(f,'red'),undefined);assert.equal(get(f,'mood').duration.remaining,2);f.ctl.dispose();});
+test('未落盘、仅思考、停止、工具、戏外输出不学习；单独重载已停止的部分文本仍不算',async()=>{
+ for(const [label,value,opts] of [['unsaved','尚未持久化。',{save:false}],['hidden','<!--Lin_CoT 秘密-->',{}],['stop','这段只写到一半',{stop:true}],['tool','工具中间内容',{tool:true}],['OOC','别写进剧情',{user:'OOC: 修改规则'}]]){
+ const f=await fixture();await mood(f,2);await turn(f,value,opts);assert.equal(get(f,'mood').duration.remaining,2,label);if(label==='stop'){await f.ctl.sync({recovery:true,force:true});assert.equal(get(f,'mood').duration.remaining,2);assert.ok(!f.ctl.views.get(A.avatar)?.source.some(x=>x.text===value));}f.ctl.dispose();}
 });
-test('P2: dry-run/quiet/impersonate bypass and main payload fields remain untouched', async () => {
- const f = await fixture(); const settings = { vertex: 'gemini', thinking: { budget: 1200 }, prefill: 'Hello' }; const before = clone(settings); f.c.chatCompletionSettings = settings;
- for (const kind of ['quiet','impersonate']) { f.c.eventSource.emit(events.GENERATION_STARTED, kind, {}, false); await f.ctrl.intercept([], 10000, kind); }
- assert.equal(f.prompts.some(p => p[1]), false);
- f.c.eventSource.emit(events.GENERATION_STARTED, 'normal', {}, true); await f.ctrl.intercept([], 10000, 'normal'); assert.equal(f.prompts.some(p => p[1]), false);
- f.c.eventSource.emit(events.GENERATION_STARTED, 'normal', {}, false); await f.ctrl.intercept([], 10000, 'normal');
- assert.equal(f.prompts.filter(p => p[1]).length, 1); assert.deepEqual(settings, before); assert.equal(f.prompts.at(-1)[2], 0); f.ctrl.dispose();
-});
-test('P2: asynchronous analysis cannot land in another chat or overwrite a manual edit', async () => {
- const f = await fixture(); let finish; f.c.generateRaw = () => new Promise(resolve => { finish = resolve; });
- const pending = f.ctrl.analyze(); await sleep(10); f.c.chatId = 'b'; f.c.chatMetadata = {}; f.c.chat = [{ is_user: true, mes: 'B' }];
- f.c.eventSource.emit(events.CHAT_CHANGED); finish('{"experiences":[],"changes":[]}'); await pending; await sleep(80); await f.ctrl.chain;
- assert.equal(f.ctrl.timeline.node.state.influences.length, 0); assert.deepEqual(f.ctrl.timeline.node.state.processed, {}); f.ctrl.dispose();
-});
-test('P2: recovery cancellation skips persona injection without stopping normal generation', async () => {
- const f = await fixture(async () => 'cancel'); f.c.chatMetadata[KEY].head = 'unknown'; await f.ctrl.enqueue(() => f.ctrl.sync({ recovery: true }));
- assert.equal(f.ctrl.suspended, true); f.c.eventSource.emit(events.GENERATION_STARTED, 'normal', {}, false); await f.ctrl.intercept([], 10000, 'normal');
- assert.equal(f.prompts.some(p => p[1]), false); f.ctrl.dispose();
-});
-test('P2: shared branch database unavailable fails open; no rejected interceptor reaches host', async () => {
- const f = await fixture(); f.ctrl.timeline.sync = async () => { throw new Error('quota'); };
- f.c.eventSource.emit(events.GENERATION_STARTED, 'normal', {}, false); await f.ctrl.intercept([], 10000, 'normal'); assert.equal(f.prompts.some(p => p[1]), false); assert.equal(f.ctrl.lastPrompt, ''); f.ctrl.dispose();
-});
-test('P2: prompt scopes, strict budget, deterministic guidance and legacy coexistence', async () => {
- const f = await fixture(), state = f.ctrl.timeline.node.state, settings = { ...f.ctrl.settings(), expressive: true, promptBudget: 900 };
- const args = { actor: { id: 'fang.png', name: '方' }, state, settings, seed: 'fixed', countTokens: s => s.length };
- assert.equal(await compose(args), await compose(args)); assert.ok((await compose(args)).length <= 900);
- assert.equal((await compose({ ...args, legacy: true })).includes('暂时烦躁'), false);
- state.influences[0].scope.people = ['甲方']; assert.equal((await compose({ ...args, settings: { ...settings, expressive: false } })), '');
- state.world.people = ['甲方']; assert.ok((await compose(args)).includes('暂时烦躁')); f.ctrl.dispose();
-});
+test('实际宿主形状四参数；不改卡/消息/预填充、关闭无残留；宏只在输出副本中转义',async()=>{
+ const f=await fixture();await add(f,'r','排练时自己记一份 {{getvar::secret}}。');const raw=JSON.stringify([f.c.characters,f.c.chat]),{ctl,c}=f;
+ f.event('GENERATION_STARTED','normal',{},false);await ctl.intercept(c.chat,9999,()=>assert.fail(),'normal');await ctl.intercept(c.chat,9999,()=>assert.fail(),'normal');
+ const nonempty=f.prompts.filter(v=>v[1]);assert.equal(nonempty.length,1);assert.deepEqual(nonempty[0].slice(2),[0,0,false,0]);assert.ok(nonempty[0][1].includes('自己记一份'));assert.ok(!nonempty[0][1].includes('{{'));assert.equal(JSON.stringify([c.characters,c.chat]),raw);
+ for(const kind of ['quiet','impersonate','tool']){f.event('GENERATION_STARTED',kind,{},false);await ctl.intercept(c.chat,100,()=>{},kind);assert.equal(f.prompts.at(-1)[1],'');}
+ ctl.changeSettings({enabled:false});f.event('GENERATION_STARTED','normal',{},false);await ctl.intercept(c.chat,100,()=>{},'normal');assert.equal(f.prompts.at(-1)[1],'');ctl.dispose();});
+test('旧情绪插件只做公开配置级避让，已审 L1 保留且无情绪双抽',async()=>{
+ const f=await fixture({settings:{expressive:true},ctx:{getExtensionManifest:n=>n==='lin-emotional-control'?{version:'1.2.0'}:null}});await add(f,'habit','会把原稿另存一份。');await mood(f,2);f.event('GENERATION_STARTED','normal',{},false);await f.ctl.intercept(f.c.chat,1000,()=>{},'normal');assert.ok(f.ctl.lastPrompt.includes('另存'));assert.ok(f.ctl.lastPrompt.includes('被夸以后'));assert.ok(!f.ctl.lastPrompt.includes('可略过的一时念头'));assert.equal(f.ctl.diag.coop,'coexist');f.ctl.dispose();});
+test('单人、群聊分别读取酒馆已存文件而非回传实时数组；检查 integrity',async()=>{
+ const f=await fixture();f.c.getRequestHeaders=()=>({'Content-Type':'application/json'});let last;
+ const fetcher=async (url,opt)=>{last={url,opt};return Response.json([{chat_metadata:{integrity:'sA'}},...f.c.chat]);};
+ assert.deepEqual(await diskChat(f.c,null,fetcher),f.c.chat);assert.equal(last.url,'/api/chats/get');assert.equal(last.opt.credentials,'same-origin');f.c.groupId='g';await diskChat(f.c,null,fetcher);assert.equal(last.url,'/api/chats/group/get');f.c.chatMetadata.integrity='B';await assert.rejects(diskChat(f.c,null,fetcher),/身份/);f.ctl.dispose();});
