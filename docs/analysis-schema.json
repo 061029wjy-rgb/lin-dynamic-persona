@@ -1,0 +1,553 @@
+{
+  "type": "object",
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sourceId": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "string"
+                },
+                "offset": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "sourceId",
+                "quote",
+                "offset"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "agent": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "recipient": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "action": {
+            "type": "string"
+          },
+          "modality": {
+            "type": "string",
+            "enum": [
+              "actual",
+              "claim",
+              "dream",
+              "hypothetical",
+              "negative",
+              "reported",
+              "remembered",
+              "performed",
+              "unknown"
+            ]
+          },
+          "time": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "place": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "knownBy": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "observer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "privacy": {
+            "type": "string",
+            "enum": [
+              "public",
+              "addressed",
+              "private",
+              "unknown"
+            ]
+          }
+        },
+        "required": [
+          "ref",
+          "sources",
+          "agent",
+          "recipient",
+          "action",
+          "modality",
+          "time",
+          "place",
+          "knownBy",
+          "observer",
+          "privacy"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "appraisals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "view": {
+            "type": "string",
+            "enum": [
+              "self_view",
+              "observed_pattern",
+              "hypothesis"
+            ]
+          }
+        },
+        "required": [
+          "event",
+          "text",
+          "view"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "proposals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "create",
+              "reinforce",
+              "weaken",
+              "revise",
+              "retire",
+              "keep"
+            ]
+          },
+          "targetRecord": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "layer": {
+            "type": "string",
+            "enum": [
+              "acquired",
+              "short",
+              "immediate",
+              "goal"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "person": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "scene": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "topic": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "support": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "counter": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "remaining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "major": {
+            "type": "boolean"
+          },
+          "psyche": {
+            "type": "object",
+            "properties": {
+              "felt_state": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "appraisal": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "coping": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "habit": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "self_view": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "observed_behavior": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "valence": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "arousal": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "intensity": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "felt_state",
+              "appraisal",
+              "coping",
+              "habit",
+              "self_view",
+              "observed_behavior",
+              "valence",
+              "arousal",
+              "intensity"
+            ],
+            "additionalProperties": false
+          },
+          "basis": {
+            "type": "string",
+            "enum": [
+              "self_report",
+              "observed",
+              "inference",
+              "explicit_plan",
+              "explicit_outcome",
+              "unknown"
+            ]
+          },
+          "basisQuote": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alternative": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "baselineFit": {
+            "type": "string",
+            "enum": [
+              "consistent",
+              "change_explained",
+              "conflict",
+              "unknown"
+            ]
+          },
+          "goal": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "purpose": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "priority": {
+                    "type": "string",
+                    "enum": [
+                      "high",
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "step": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "blockers": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "active",
+                      "paused",
+                      "completed",
+                      "failed",
+                      "abandoned"
+                    ]
+                  },
+                  "nextReview": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "purpose",
+                  "priority",
+                  "step",
+                  "blockers",
+                  "status",
+                  "nextReview"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "action",
+          "targetRecord",
+          "layer",
+          "description",
+          "reason",
+          "person",
+          "scene",
+          "topic",
+          "support",
+          "counter",
+          "remaining",
+          "major",
+          "psyche",
+          "basis",
+          "basisQuote",
+          "alternative",
+          "baselineFit",
+          "goal"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "summaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "scene",
+              "chapter"
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "text",
+          "level",
+          "tags",
+          "sourceIds"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "events",
+    "appraisals",
+    "proposals",
+    "summaries"
+  ],
+  "additionalProperties": false
+}

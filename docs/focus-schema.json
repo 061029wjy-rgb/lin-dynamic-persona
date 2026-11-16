@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "quote": {
+            "type": "string"
+          },
+          "feeling": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source",
+          "quote",
+          "feeling"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "signals"
+  ],
+  "additionalProperties": false
+}
