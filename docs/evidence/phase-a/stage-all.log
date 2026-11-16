@@ -1,0 +1,158 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lin-dynamic-persona@0.7.0 test
+> node --test tests/*.test.js
+
+✔ 模型只是提出解释，精确引文/偏移与人类批准为彼此独立的关口；两天两次支持长期人格 (38.471847ms)
+✔ 在两楼讲同一事件、日期未知不能累加，玩家合并提及后仍只算一次；不同日期不可合并 (11.924921ms)
+✔ 变形：普通上班 → 索引原文不能自行断言约会、主体、或写入 L1 (13.01279ms)
+✔ 变形：第三方 → 索引原文不能自行断言约会、主体、或写入 L1 (3.325048ms)
+✔ 变形：假如 → 索引原文不能自行断言约会、主体、或写入 L1 (6.882368ms)
+✔ 变形：梦境 → 索引原文不能自行断言约会、主体、或写入 L1 (4.643967ms)
+✔ 变形：否定 → 索引原文不能自行断言约会、主体、或写入 L1 (3.019669ms)
+✔ 变形：表演 → 索引原文不能自行断言约会、主体、或写入 L1 (3.016464ms)
+✔ 变形：回忆 → 索引原文不能自行断言约会、主体、或写入 L1 (3.487897ms)
+✔ 伪造片段、错 offsets、未知 ID 或另一个角色的 source 在投影之前整批拒绝 (8.072968ms)
+✔ 原文位置按选中消息的 UTF-16 计；禁止跨隐藏注释拼引文；来源编辑不能沿用未经复核的人格 (1.962545ms)
+✔ 改行动人后原提案不能再指向旧对象；更正或拒绝事件让已批准人格暂停 (4.461059ms)
+✔ 角色知情在索引和分析输入之前过滤；撤销授权及替换 Swipe 后不会因文本相似复活 (11.304118ms)
+✔ 完整合同瘦身与省略 null 归一化；对保存的 literary 原始回答精确分类诊断并拦截 Farewell 寒暄误报 (11.532183ms)
+✔ T08 & P0-06 & P1-04：无日期多场次独立验证、言行不一行为观察提案与干运行预览、主观误解→后续修正认知链及群聊现场公开动作过滤与跨楼去重 (47.675086ms)
+✔ 真实事件顺序模型：先结束再渲染双通知，只扣一次；五次其他 NPC 回复不消耗两次即时影响 (151.97873ms)
+✔ 同文不同 swipe、续写、重生和返回 A 仅按当前选中分支推进 (21.962587ms)
+✔ 未落盘、仅思考、停止、工具、戏外输出不学习；单独重载已停止的部分文本仍不算 (21.077586ms)
+✔ 实际宿主形状四参数；不改卡/消息/预填充、关闭无残留；宏只在输出副本中转义 (7.589607ms)
+✔ 旧情绪插件只做公开配置级避让，已审 L1 保留且无情绪双抽 (13.268496ms)
+✔ 单人、群聊分别读取酒馆已存文件而非回传实时数组；检查 integrity (16.093869ms)
+✔ P0: lifetime advances only for its owner and freezes completely (3.917659ms)
+✔ P0: delete creates evidence block; user edits own the record (2.09559ms)
+✔ P0: selected story determines fingerprint, including swipe index but excluding hidden reasoning (17.541663ms)
+✔ 协议实际 HTTP 收发及拒绝矩阵 · openai (69.940718ms)
+✔ 协议实际 HTTP 收发及拒绝矩阵 · compat (27.72624ms)
+✔ 协议实际 HTTP 收发及拒绝矩阵 · deepseek (16.592453ms)
+✔ 协议实际 HTTP 收发及拒绝矩阵 · router (28.354153ms)
+✔ 协议实际 HTTP 收发及拒绝矩阵 · gemini (14.899493ms)
+✔ 协议实际 HTTP 收发及拒绝矩阵 · vertex (10.770023ms)
+✔ 协议实际 HTTP 收发及拒绝矩阵 · claude (14.886524ms)
+✔ 协议实际 HTTP 收发及拒绝矩阵 · ollama (13.515749ms)
+✔ Vertex 只信任服务端账号、固定目标、ADC；浏览器无法指定私钥、额外 URL 或借用别人的槽位；独立网关日配额跨重启持久原子计数 (26.260686ms)
+✔ 地址类型、重定向策略、固定路由、HTTP 局域网、响应层隔离 (0.860295ms)
+✔ 配置/账本/人格备份无会话凭证；401只暂停该档，绝不回退主模型；换目标清除授权凭证；HTTP 400 自动关闭 Schema 且不重发 (36.394442ms)
+✔ 供应商返回损坏 JSON/流截断、取消和成功连接诊断都走同一计费入口 (28.699115ms)
+✔ 四种自由心理不是情绪卡；保留否定、混合及内隐，A 全待审、B 有条件采用、C 可撤销屏蔽 (40.905635ms)
+✔ 工作迟到、第三人声称、梦境、假设和无依据的心理均不自动采用 (15.118435ms)
+✔ 经过两个独立日期能在 C 形成人格；B、单日重述、基线未核对与反证都转人工 (5.5575ms)
+✔ 验证 L1 修订、反证削弱与目标事件结束；无变化保持合法 (28.58362ms)
+✔ 共存依然投影 L2/L3/L4；300 楼积累后主提示没有原文、摘要、分数、秘密或固定动作 (177.222401ms)
+✔ 十人群聊：限定在场期间可见公开对白；带引号点名、他人内心秘密与渠道自然语言拒答准确区分 (33.867112ms)
+✔ 提示词语境相关性排序与行为对照盲评规则验证 (7.045136ms)
+✔ T01 & P0-01：否定与条件语义100%保真（严禁将“绝对不能透露”删成“透露”）；越权指令隔离并记录 blocked_reason 与 fieldAudit (2.838653ms)
+✔ P0-B & T15：高相关未置顶条目可竞争击败无关置顶项；自认为与外在观察严格分离；三角色五类情境 OFF/A/B 矩阵验证 (18.74031ms)
+✔ A-T01 有效持有人的旧快照不能覆盖其他写者追加；CAS、租约字段和释放都不替换成员 (33.883652ms)
+✔ A-T02 不同事件循环交错两种顺序；实际来源精确 ACK；同楼部分提交不删未处理片段 (54.013995ms)
+✔ A-T03 实际租约到期、换主、旧/未来/省略 token 的 patch/release/commit 全部拒绝；空队列不发生 ABA (84.904707ms)
+✔ A-T04 十个独立连接同时追加同一锚点，重复登记只留一个责任条目 (8.291449ms)
+✔ A-T05 故障注入：队列丢成员、重复终态、孤儿批次、映射错归属各有独立证据 (5.509944ms)
+✔ A-T06 未接受的旧聊天不进入分母；零可见片段有原因且不能空分析成功 (4.74776ms)
+✔ A-T07 四表加账本提交中途真实 abort，已派发证据仍在，可转人工；不能省略租约或伪造 ACK (7.559313ms)
+✔ A-T08 编辑/Swipe/玩家撤销有明确归档；不能复活旧分支或跨人物，过滤已处理来源 (25.063055ms)
+✔ A-T09 真实 v5 布局升级：保留历史、运行中旧批/已处理来源标 legacy，不能假定历史齐全 (2.533554ms)
+✔ A-T10 两页争抢同批下一尝试：只一份预留、有序历史、旧失败 job 保留；未授权重发不会派发 (7.300211ms)
+✔ A-T11 预留超额/事务故障/刷新后未发退款；旧失败指针、真实 quota 和派发历史不被破坏 (3.934063ms)
+✔ A-T12 101/120/500 个锚点，三个角色，重载及局部处理后 FIFO、溢出数、账本计数可核验 (166.108643ms)
+✔ A-X01 派发后租约过期即使同一 tab 也只转人工；待发预留由新租约退款，旧页不能发送 (359.027542ms)
+✔ A-X02 管理接口与兼容方法不能绕过账本；续租保持 token，冻结批次不可改写或擅改派发 (3.225742ms)
+✔ A-X03 旧失败批次核验接管或具名归档；幽灵 job 不可修补为已发送 (12.396284ms)
+✔ 有历史差异且弹窗关 → 静默停止，不选择未来或同层 sibling；逐字共同前缀才可显式载入 (86.405624ms)
+✔ 文本相同但修订不同 → 恢复指定人工历史；取消操作不改变档案 (11.018317ms)
+✔ 导入旧 v3 快照：原对象原库不变，人工锁定保留，自动推论隔离，同文不同 swipe 有歧义时拒绝 (11.113207ms)
+✔ 完整备份跨库；增量只能补到同一来源及精确的起始修订；活动库不被覆盖 (9.178533ms)
+✔ 新设备仅有聊天元数据：无库时不伪造状态，玩家可选从已存文本重新建立索引 (6.046169ms)
+✔ 旧设备同时编辑：过时修订不能覆写新窗口玩家修改 (10.548387ms)
+✔ 默认不调用模型；主动开启后沿用 generateRaw，不传外部地址/模型/思考参数；历史不自动再收费 (88.211763ms)
+✔ JSON 截断和服务错误也占额度；同批不静默重试，显式 retry 才允许重发失败批次，累计/日/会话上限可设 0 (82.970588ms)
+✔ 显式 schema 只影响独立分析；不支持时下次改普通 JSON，不自动补第二次请求 (6.963487ms)
+✔ 在途分析遇到编辑/聊天切换/分支更换：丢弃结果，不使用宿主停止键；真正底层结束前不并发 (36.013683ms)
+✔ 超时返回控制权；迟到结果被丢弃，直到原始调用 settled 才释放独占分析锁 (17.92478ms)
+✔ 多标签页同配置档在途原子互斥与自动分析待发队列跨刷新恢复 (16.144003ms)
+✖ T06：达到9次后因日限额失败保留锚点，刷新并提升限额后按批次精确 ACK，不丢剩余片段且不造假人格 (76.859084ms)
+✖ T02 & P0-02：batchSize=2 累计12次有效回复仅逐批 ACK 实际覆盖来源（含同楼多片段完整性）；101/120锚点与超 queueLimit 背压零丢弃；来源状态严格守恒 (50.925104ms)
+✖ T03 & P0-03：发出断网后继续 1/5/20 楼 RP → 点击重试旧批仅重发原冻结 BatchManifest 来源，新楼留在队列；原消息被改或改配置时预检拒绝且不破坏失败状态 (15.518413ms)
+✖ T04 & T05（P0-04 & 事务回滚）：Tab A claim 后旧内存 saveQueue 不覆盖租约；租约到期后过期 fencingToken 迟到提交被拒绝且当 sent=true 时转人工核验不重发；commitAnalysis 故障注入全回滚 (3.528216ms)
+✔ P2: actual Chinese panel creates, edits, freezes and deletes safely; no HTML execution; mobile profile modal resets consent on model rename; proposal diff preview & cost ledger modal work (301.450271ms)
+✔ P2: recovery dialog exposes restore/rebuild/disable/cancel and resolves cancellation (1.019719ms)
+ℹ tests 78
+ℹ suites 0
+ℹ pass 74
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1171.387175
+
+✖ failing tests:
+
+test at tests/services.test.js:46:1
+✖ T06：达到9次后因日限额失败保留锚点，刷新并提升限额后按批次精确 ACK，不丢剩余片段且不造假人格 (76.859084ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'failed_retryable'
+  - 'waiting_budget'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/tests/services.test.js:63:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'failed_retryable',
+    expected: 'waiting_budget',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/services.test.js:94:1
+✖ T02 & P0-02：batchSize=2 累计12次有效回复仅逐批 ACK 实际覆盖来源（含同楼多片段完整性）；101/120锚点与超 queueLimit 背压零丢弃；来源状态严格守恒 (50.925104ms)
+  Error [QueueError]: 自动队列须先接入阶段 B 的原子预留；没有派发。
+      at file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/src/storage.js:79:179
+      at Generator.next (<anonymous>)
+      at step (file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/src/queue-ledger.js:36:55)
+      at req.onsuccess (file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/src/queue-ledger.js:36:134)
+      at file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/tests/shims/indexeddb.js:10:58
+      at FakeTransaction._drain (file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/tests/shims/indexeddb.js:86:17)
+      at file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/tests/shims/indexeddb.js:55:35
+      at node:internal/process/task_queues:151:7
+      at AsyncResource.runInAsyncScope (node:async_hooks:227:14)
+      at AsyncResource.runMicrotask (node:internal/process/task_queues:148:8) {
+    code: 'MANAGED_ATTEMPT_REQUIRED',
+    sent: false,
+    queueState: 'failed_retryable'
+  }
+
+test at tests/services.test.js:167:1
+✖ T03 & P0-03：发出断网后继续 1/5/20 楼 RP → 点击重试旧批仅重发原冻结 BatchManifest 来源，新楼留在队列；原消息被改或改配置时预检拒绝且不破坏失败状态 (15.518413ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/tests/services.test.js:178:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/services.test.js:225:1
+✖ T04 & T05（P0-04 & 事务回滚）：Tab A claim 后旧内存 saveQueue 不覆盖租约；租约到期后过期 fencingToken 迟到提交被拒绝且当 sent=true 时转人工核验不重发；commitAnalysis 故障注入全回滚 (3.528216ms)
+  Error [QueueError]: 禁止直接改写队列、派发记录、责任账本与迁移快照。
+      at guardRawWrite (file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/src/storage.js:97:123)
+      at Database.put (file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/src/storage.js:26:17)
+      at TestContext.<anonymous> (file:///workspace/scratch/e3b121a6c720/work/persona-07a/lin-dynamic-persona/tests/services.test.js:255:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    code: 'PROTECTED_WRITE'
+  }
