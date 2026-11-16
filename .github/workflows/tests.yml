@@ -10,12 +10,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-          cache: npm
-      - run: npm ci --ignore-scripts
       - run: npm run check
       - run: npm test
       - run: npm run package
       - uses: actions/upload-artifact@v4
         with:
           name: lin-dynamic-persona-install
-          path: ../lin-dynamic-persona-*.zip
+          path: dist/*.zip
